@@ -1,0 +1,26 @@
+{
+  "name": "sinem.demiroz.me",
+  "version": "1.0.0",
+  "description": "Sinem Demiröz's personal website",
+  "main": "index.html",
+  "scripts": {
+    "start": "http-server . -p 8000",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dorukgezici/sinem.demiroz.me.git"
+  },
+  "author": "Doruk Gezici",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/dorukgezici/sinem.demiroz.me/issues"
+  },
+  "homepage": "https://github.com/dorukgezici/sinem.demiroz.me#readme",
+  "dependencies": {
+    "three": "^0.137.5"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.0"
+  }
+}

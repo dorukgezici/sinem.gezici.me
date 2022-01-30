@@ -1,9 +1,10 @@
 <!doctype html>
-<html>
+<html lang="en">
     <head>
         <title>Sinem Demiröz</title>
+        <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <style type="text/css">
+        <style>
           body {
             background-color: #f0f0f2;
             margin: 0;
@@ -40,4 +41,16 @@
             <p>Coming soon...</p>
         </div>
     </body>
+
+    <script type="module">
+      // Find the latest version by visiting https://cdn.skypack.dev/three.
+      import * as THREE
+        from 'https://cdn.skypack.dev/pin/three@v0.137.5-HJEdoVYPhjkiJWkt6XIa/mode=imports,min/optimized/three.js';
+      import {
+        OrbitControls,
+      } from 'https://cdn.skypack.dev/three@v0.137.5-HJEdoVYPhjkiJWkt6XIa/examples/jsm/controls/OrbitControls.js';
+
+      const scene = new THREE.Scene();
+      const controls = new OrbitControls(camera, renderer.domElement);
+    </script>
 </html>
