@@ -1,27 +1,63 @@
-body {
-  background-color: #f0f0f2;
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+/* main */
+
+:root {
+  --r50: #fdf4f4;
+  --r100: #f9dada;
+  --r200: #f4b6b6;
+  --r300: #ee9191;
+  --r400: #d14343;
+  --b10: rgba(0, 0, 0, 0.1);
+  --b30: rgba(0, 0, 0, 0.3);
+  --b50: rgba(0, 0, 0, 0.5);
 }
 
-div {
+body {
+  background-color: var(--r100);
+  margin: 0;
+  padding: 0;
+  font-family: "Dosis", Helvetica, sans-serif;
+}
+
+.container {
   width: 600px;
   margin: 5em auto;
   padding: 2em;
-  background-color: #fdfdff;
   border-radius: 0.5em;
-  box-shadow: 2px 3px 7px 2px rgba(0, 0, 0, 0.02);
+  background-color: var(--r50);
+  box-shadow: 2px 3px 7px 2px var(--b10);
 }
 
 a:link, a:visited {
-  color: #38488f;
+  color: var(--b50);
   text-decoration: none;
 }
 
 @media (max-width: 700px) {
-  div {
-    margin: 0 auto;
+  .container {
+    margin: 2em auto;
     width: auto;
   }
+}
+
+/* helpers */
+
+.text-footer {
+  font-size: 0.8em;
+  color: var(--b50);
+}
+
+.text-center {
+  text-align: center;
+}
+
+
+/* components */
+
+.avatar {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background-color: var(--r100);
+  box-shadow: 2px 3px 7px 2px var(--b10);
 }
