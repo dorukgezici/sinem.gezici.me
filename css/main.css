@@ -1,63 +1,85 @@
 /* main */
 
 :root {
-  --r50: #fdf4f4;
-  --r100: #f9dada;
-  --r200: #f4b6b6;
-  --r300: #ee9191;
-  --r400: #d14343;
-  --b10: rgba(0, 0, 0, 0.1);
-  --b30: rgba(0, 0, 0, 0.3);
-  --b50: rgba(0, 0, 0, 0.5);
+    --r1: #fdf4f4;
+    --r2: #f9dada;
+    --r3: #f4b6b6;
+    --r4: #ee9191;
+    --r5: #d14343;
+    --b1: rgba(0, 0, 0, 0.1);
+    --b2: rgba(0, 0, 0, 0.3);
+    --b3: rgba(0, 0, 0, 0.5);
 }
 
 body {
-  background-color: var(--r100);
-  margin: 0;
-  padding: 0;
-  font-family: "Dosis", Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--r2);
+    font-family: "Dosis", Helvetica, sans-serif;
 }
 
-.container {
-  width: 600px;
-  margin: 5em auto;
-  padding: 2em;
-  border-radius: 0.5em;
-  background-color: var(--r50);
-  box-shadow: 2px 3px 7px 2px var(--b10);
-}
-
-a:link, a:visited {
-  color: var(--b50);
-  text-decoration: none;
+main {
+    width: 600px;
+    margin: 5em auto;
+    padding: 2em;
+    background-color: var(--r1);
+    border-radius: 0.5em;
+    box-shadow: 2px 3px 7px 2px var(--b1);
 }
 
 @media (max-width: 700px) {
-  .container {
-    margin: 2em auto;
-    width: auto;
-  }
+    main {
+        width: auto;
+        margin: 2em auto;
+    }
 }
 
-/* helpers */
-
-.text-footer {
-  font-size: 0.8em;
-  color: var(--b50);
+header, footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2em;
 }
 
-.text-center {
-  text-align: center;
+li {
+    margin: 1em 0;
+}
+
+li::marker {
+    color: var(--r4);
+}
+
+h1 {
+    margin-top: 0.83em;
+    margin-bottom: 0;
+}
+
+small {
+    display: block;
+    color: var(--b3);
+    font-size: 0.9em;
+    margin: 0.5em 0;
+}
+
+a:link, a:visited {
+    color: var(--b3);
+    text-decoration: none;
+}
+
+i {
+    display: inline;
+    margin-inline: 0.5em;
+    color: var(--r4);
 }
 
 
 /* components */
 
 .avatar {
-  width: 200px;
-  height: 200px;
-  margin: 0 auto;
-  border-radius: 50%;
-  background-color: var(--r100);
-  box-shadow: 2px 3px 7px 2px var(--b10);
+    width: 200px;
+    height: 200px;
+    background-color: var(--r2);
+    border-radius: 50%;
+    box-shadow: 2px 3px 7px 2px var(--b1);
 }
