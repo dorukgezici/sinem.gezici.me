@@ -1,0 +1,54 @@
+---
+type PixelRect = {
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+    fill: string;
+    opacity?: number;
+};
+
+type Props = {
+    width: number | string;
+    height: number | string;
+    viewBox: string;
+    rects: PixelRect[];
+    class?: string;
+    style?: string;
+    preserveAspectRatio?: string;
+    pixelated?: boolean;
+};
+
+const {
+    width,
+    height,
+    viewBox,
+    rects,
+    class: className,
+    style,
+    preserveAspectRatio = "xMidYMid meet",
+    pixelated = false,
+} = Astro.props;
+---
+
+<svg
+    width={width}
+    height={height}
+    viewBox={viewBox}
+    preserveAspectRatio={preserveAspectRatio}
+    class={className}
+    style={`${pixelated ? "image-rendering: pixelated; " : ""}${style ?? ""}`.trim()}
+>
+    {
+        rects.map((rect) => (
+            <rect
+                x={rect.x}
+                y={rect.y}
+                width={rect.width}
+                height={rect.height}
+                fill={rect.fill}
+                opacity={rect.opacity}
+            />
+        ))
+    }
+</svg>

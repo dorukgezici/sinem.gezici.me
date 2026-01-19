@@ -1,0 +1,983 @@
+---
+import PixelArt from "../pixel/PixelArt.astro";
+
+type Decoration = {
+  className: string;
+  width: number | string;
+  height: number | string;
+  viewBox: string;
+  rects: Array<{
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+    fill: string;
+    opacity?: number;
+  }>;
+  svgClass?: string;
+};
+
+const decorations: Decoration[] = [
+  // Trees - varied sizes and positions
+  {
+    className: "absolute bottom-[18%] left-[3%] z-10 -mb-30",
+    width: 180,
+    height: 280,
+    viewBox: "0 0 90 140",
+    svgClass: "drop-shadow-xl",
+    rects: [
+      { x: 40, y: 95, width: 12, height: 45, fill: "#78350f" },
+      { x: 42, y: 100, width: 3, height: 35, fill: "#92400e", opacity: 0.5 },
+      { x: 15, y: 45, width: 60, height: 55, fill: "#166534" },
+      { x: 25, y: 25, width: 40, height: 35, fill: "#15803d" },
+      { x: 35, y: 8, width: 20, height: 22, fill: "#16a34a" },
+      { x: 20, y: 50, width: 8, height: 8, fill: "#22c55e", opacity: 0.4 },
+      { x: 50, y: 30, width: 6, height: 6, fill: "#22c55e", opacity: 0.3 },
+    ],
+  },
+  {
+    className: "absolute bottom-[18%] left-[12%] z-10 -mb-20",
+    width: 140,
+    height: 220,
+    viewBox: "0 0 70 110",
+    svgClass: "drop-shadow-lg",
+    rects: [
+      { x: 30, y: 70, width: 10, height: 40, fill: "#78350f" },
+      { x: 32, y: 75, width: 2, height: 30, fill: "#92400e", opacity: 0.5 },
+      { x: 12, y: 35, width: 46, height: 40, fill: "#166534" },
+      { x: 20, y: 18, width: 30, height: 25, fill: "#15803d" },
+      { x: 28, y: 5, width: 14, height: 18, fill: "#16a34a" },
+      { x: 15, y: 40, width: 6, height: 6, fill: "#22c55e", opacity: 0.35 },
+    ],
+  },
+  {
+    className: "absolute bottom-[18%] left-[22%] z-10 -mb-12.5",
+    width: 90,
+    height: 140,
+    viewBox: "0 0 45 70",
+    svgClass: "drop-shadow-md",
+    rects: [
+      { x: 19, y: 45, width: 7, height: 25, fill: "#78350f" },
+      { x: 8, y: 22, width: 29, height: 26, fill: "#166534" },
+      { x: 13, y: 10, width: 19, height: 16, fill: "#15803d" },
+      { x: 17, y: 3, width: 11, height: 10, fill: "#16a34a" },
+    ],
+  },
+  {
+    className: "absolute bottom-[18%] right-[20%] z-10 -mb-25",
+    width: 160,
+    height: 250,
+    viewBox: "0 0 80 125",
+    svgClass: "drop-shadow-xl",
+    rects: [
+      { x: 35, y: 85, width: 10, height: 40, fill: "#78350f" },
+      { x: 37, y: 90, width: 2, height: 30, fill: "#92400e", opacity: 0.5 },
+      { x: 15, y: 42, width: 50, height: 48, fill: "#166534" },
+      { x: 23, y: 22, width: 34, height: 30, fill: "#15803d" },
+      { x: 30, y: 6, width: 20, height: 20, fill: "#16a34a" },
+      { x: 18, y: 48, width: 7, height: 7, fill: "#22c55e", opacity: 0.4 },
+      { x: 45, y: 28, width: 5, height: 5, fill: "#22c55e", opacity: 0.3 },
+    ],
+  },
+  {
+    className: "absolute bottom-[18%] right-[8%] z-10 -mb-22.5",
+    width: 150,
+    height: 230,
+    viewBox: "0 0 75 115",
+    svgClass: "drop-shadow-lg",
+    rects: [
+      { x: 33, y: 75, width: 9, height: 40, fill: "#78350f" },
+      { x: 35, y: 80, width: 2, height: 28, fill: "#92400e", opacity: 0.5 },
+      { x: 14, y: 38, width: 47, height: 42, fill: "#166534" },
+      { x: 22, y: 20, width: 31, height: 26, fill: "#15803d" },
+      { x: 29, y: 5, width: 17, height: 18, fill: "#16a34a" },
+      { x: 17, y: 42, width: 6, height: 6, fill: "#22c55e", opacity: 0.35 },
+      { x: 42, y: 25, width: 5, height: 5, fill: "#22c55e", opacity: 0.3 },
+    ],
+  },
+  {
+    className: "absolute bottom-[18%] right-[2%] z-10 -mb-10",
+    width: 70,
+    height: 110,
+    viewBox: "0 0 35 55",
+    svgClass: "drop-shadow-sm",
+    rects: [
+      { x: 14, y: 35, width: 6, height: 20, fill: "#78350f" },
+      { x: 6, y: 17, width: 23, height: 20, fill: "#166534" },
+      { x: 10, y: 7, width: 15, height: 13, fill: "#15803d" },
+      { x: 13, y: 2, width: 9, height: 8, fill: "#16a34a" },
+    ],
+  },
+
+  // XL trees
+  {
+    className: "hidden xl:block absolute bottom-[18%] left-[30%] z-10 -mb-17.5",
+    width: 120,
+    height: 190,
+    viewBox: "0 0 60 95",
+    svgClass: "drop-shadow-lg",
+    rects: [
+      { x: 26, y: 62, width: 8, height: 33, fill: "#78350f" },
+      { x: 28, y: 67, width: 2, height: 24, fill: "#92400e", opacity: 0.5 },
+      { x: 10, y: 30, width: 40, height: 36, fill: "#166534" },
+      { x: 17, y: 15, width: 26, height: 22, fill: "#15803d" },
+      { x: 23, y: 4, width: 14, height: 14, fill: "#16a34a" },
+      { x: 14, y: 35, width: 5, height: 5, fill: "#22c55e", opacity: 0.35 },
+    ],
+  },
+  {
+    className: "hidden xl:block absolute bottom-[18%] right-[30%] z-10 -mb-15",
+    width: 100,
+    height: 160,
+    viewBox: "0 0 50 80",
+    svgClass: "drop-shadow-lg",
+    rects: [
+      { x: 22, y: 52, width: 7, height: 28, fill: "#78350f" },
+      { x: 24, y: 56, width: 2, height: 20, fill: "#92400e", opacity: 0.5 },
+      { x: 8, y: 25, width: 34, height: 30, fill: "#166534" },
+      { x: 14, y: 12, width: 22, height: 18, fill: "#15803d" },
+      { x: 19, y: 3, width: 12, height: 12, fill: "#16a34a" },
+    ],
+  },
+
+  // 2XL trees
+  {
+    className: "hidden 2xl:block absolute bottom-[18%] left-[35%] z-10 -mb-22.5",
+    width: 140,
+    height: 220,
+    viewBox: "0 0 70 110",
+    svgClass: "drop-shadow-xl",
+    rects: [
+      { x: 30, y: 72, width: 10, height: 38, fill: "#78350f" },
+      { x: 32, y: 77, width: 2, height: 28, fill: "#92400e", opacity: 0.5 },
+      { x: 12, y: 35, width: 46, height: 42, fill: "#166534" },
+      { x: 20, y: 17, width: 30, height: 25, fill: "#15803d" },
+      { x: 27, y: 4, width: 16, height: 16, fill: "#16a34a" },
+      { x: 16, y: 40, width: 6, height: 6, fill: "#22c55e", opacity: 0.4 },
+    ],
+  },
+  {
+    className: "hidden 2xl:block absolute bottom-[18%] right-[35%] z-10 -mb-18.75",
+    width: 130,
+    height: 200,
+    viewBox: "0 0 65 100",
+    svgClass: "drop-shadow-xl",
+    rects: [
+      { x: 28, y: 65, width: 9, height: 35, fill: "#78350f" },
+      { x: 30, y: 70, width: 2, height: 25, fill: "#92400e", opacity: 0.5 },
+      { x: 11, y: 32, width: 43, height: 38, fill: "#166534" },
+      { x: 18, y: 15, width: 29, height: 23, fill: "#15803d" },
+      { x: 25, y: 3, width: 15, height: 15, fill: "#16a34a" },
+      { x: 38, y: 20, width: 5, height: 5, fill: "#22c55e", opacity: 0.3 },
+    ],
+  },
+  {
+    className: "hidden 2xl:block absolute bottom-[18%] left-[40%] z-10 -mb-11.25",
+    width: 80,
+    height: 125,
+    viewBox: "0 0 40 62",
+    svgClass: "drop-shadow-md",
+    rects: [
+      { x: 17, y: 40, width: 6, height: 22, fill: "#78350f" },
+      { x: 7, y: 20, width: 26, height: 23, fill: "#166534" },
+      { x: 12, y: 9, width: 16, height: 14, fill: "#15803d" },
+      { x: 15, y: 2, width: 10, height: 9, fill: "#16a34a" },
+    ],
+  },
+  {
+    className: "hidden 2xl:block absolute bottom-[18%] right-[40%] z-10 -mb-12.5",
+    width: 85,
+    height: 135,
+    viewBox: "0 0 42 67",
+    svgClass: "drop-shadow-md",
+    rects: [
+      { x: 18, y: 44, width: 6, height: 23, fill: "#78350f" },
+      { x: 7, y: 22, width: 28, height: 25, fill: "#166534" },
+      { x: 12, y: 10, width: 18, height: 15, fill: "#15803d" },
+      { x: 16, y: 2, width: 10, height: 10, fill: "#16a34a" },
+    ],
+  },
+
+  // Bushes
+  {
+    className: "absolute bottom-[17%] left-[18%] z-5",
+    width: 60,
+    height: 40,
+    viewBox: "0 0 30 20",
+    rects: [
+      { x: 2, y: 8, width: 26, height: 12, fill: "#166534" },
+      { x: 5, y: 4, width: 8, height: 6, fill: "#15803d" },
+      { x: 15, y: 5, width: 10, height: 5, fill: "#16a34a" },
+      { x: 8, y: 10, width: 4, height: 4, fill: "#22c55e", opacity: 0.3 },
+    ],
+  },
+  {
+    className: "absolute bottom-[17%] right-[25%] z-5",
+    width: 50,
+    height: 35,
+    viewBox: "0 0 25 18",
+    rects: [
+      { x: 2, y: 7, width: 21, height: 11, fill: "#166534" },
+      { x: 4, y: 3, width: 7, height: 5, fill: "#15803d" },
+      { x: 13, y: 4, width: 8, height: 4, fill: "#16a34a" },
+    ],
+  },
+  {
+    className: "hidden xl:block absolute bottom-[17%] left-[32%] z-5",
+    width: 55,
+    height: 38,
+    viewBox: "0 0 28 19",
+    rects: [
+      { x: 2, y: 8, width: 24, height: 11, fill: "#166534" },
+      { x: 5, y: 4, width: 7, height: 5, fill: "#15803d" },
+      { x: 14, y: 5, width: 9, height: 4, fill: "#16a34a" },
+    ],
+  },
+  {
+    className: "hidden xl:block absolute bottom-[17%] right-[32%] z-5",
+    width: 48,
+    height: 32,
+    viewBox: "0 0 24 16",
+    rects: [
+      { x: 2, y: 6, width: 20, height: 10, fill: "#166534" },
+      { x: 4, y: 3, width: 6, height: 4, fill: "#15803d" },
+      { x: 12, y: 4, width: 7, height: 3, fill: "#16a34a" },
+    ],
+  },
+  {
+    className: "hidden 2xl:block absolute bottom-[17%] left-[38%] z-5",
+    width: 45,
+    height: 30,
+    viewBox: "0 0 22 15",
+    rects: [
+      { x: 2, y: 6, width: 18, height: 9, fill: "#166534" },
+      { x: 4, y: 3, width: 5, height: 4, fill: "#15803d" },
+      { x: 11, y: 4, width: 6, height: 3, fill: "#16a34a" },
+    ],
+  },
+  {
+    className: "hidden 2xl:block absolute bottom-[17%] right-[38%] z-5",
+    width: 50,
+    height: 34,
+    viewBox: "0 0 25 17",
+    rects: [
+      { x: 2, y: 7, width: 21, height: 10, fill: "#166534" },
+      { x: 5, y: 3, width: 6, height: 5, fill: "#15803d" },
+      { x: 13, y: 4, width: 8, height: 4, fill: "#16a34a" },
+    ],
+  },
+  {
+    className: "absolute bottom-[17%] left-[28%] z-5",
+    width: 40,
+    height: 28,
+    viewBox: "0 0 20 14",
+    rects: [
+      { x: 1, y: 5, width: 18, height: 9, fill: "#15803d" },
+      { x: 4, y: 2, width: 6, height: 4, fill: "#16a34a" },
+      { x: 11, y: 3, width: 5, height: 3, fill: "#22c55e" },
+    ],
+  },
+
+  // Bench
+  {
+    className: "absolute bottom-[14%] left-[24%] z-20 -mb-7.5",
+    width: 100,
+    height: 70,
+    viewBox: "0 0 25 18",
+    rects: [
+      { x: 3, y: 10, width: 3, height: 8, fill: "#78350f" },
+      { x: 19, y: 10, width: 3, height: 8, fill: "#78350f" },
+      { x: 1, y: 7, width: 23, height: 4, fill: "#92400e" },
+      { x: 2, y: 8, width: 21, height: 2, fill: "#a16207", opacity: 0.5 },
+      { x: 2, y: 2, width: 21, height: 3, fill: "#78350f" },
+      { x: 3, y: 3, width: 19, height: 1, fill: "#92400e", opacity: 0.5 },
+      { x: 4, y: 5, width: 2, height: 3, fill: "#78350f" },
+      { x: 19, y: 5, width: 2, height: 3, fill: "#78350f" },
+    ],
+  },
+
+  // Trash can
+  {
+    className: "absolute bottom-[14.5%] left-[22%] z-20 -mb-6.25",
+    width: 36,
+    height: 48,
+    viewBox: "0 0 12 16",
+    rects: [
+      { x: 2, y: 2, width: 8, height: 14, fill: "#166534" },
+      { x: 1, y: 1, width: 10, height: 2, fill: "#15803d" },
+      { x: 4, y: 4, width: 1, height: 8, fill: "#22c55e", opacity: 0.3 },
+      { x: 7, y: 4, width: 1, height: 8, fill: "#22c55e", opacity: 0.3 },
+    ],
+  },
+
+  // Flowers - far
+  {
+    className: "absolute bottom-[17.8%] left-[5%] z-0 opacity-70",
+    width: 12,
+    height: 16,
+    viewBox: "0 0 6 8",
+    rects: [
+      { x: 2, y: 4, width: 2, height: 4, fill: "#15803d" },
+      { x: 1, y: 1, width: 4, height: 3, fill: "#f472b6" },
+      { x: 2, y: 2, width: 2, height: 1, fill: "#fbbf24" },
+    ],
+  },
+  {
+    className: "absolute bottom-[17.8%] left-[7%] z-0 opacity-70",
+    width: 10,
+    height: 14,
+    viewBox: "0 0 5 7",
+    rects: [
+      { x: 2, y: 4, width: 1, height: 3, fill: "#16a34a" },
+      { x: 1, y: 1, width: 3, height: 3, fill: "#c084fc" },
+      { x: 2, y: 2, width: 1, height: 1, fill: "#fbbf24" },
+    ],
+  },
+  {
+    className: "absolute bottom-[17.8%] right-[6%] z-0 opacity-70",
+    width: 12,
+    height: 16,
+    viewBox: "0 0 6 8",
+    rects: [
+      { x: 2, y: 4, width: 2, height: 4, fill: "#15803d" },
+      { x: 1, y: 1, width: 4, height: 3, fill: "#fb7185" },
+      { x: 2, y: 2, width: 2, height: 1, fill: "#fcd34d" },
+    ],
+  },
+  {
+    className: "absolute bottom-[17.8%] right-[8%] z-0 opacity-70",
+    width: 10,
+    height: 14,
+    viewBox: "0 0 5 7",
+    rects: [
+      { x: 2, y: 4, width: 1, height: 3, fill: "#16a34a" },
+      { x: 1, y: 1, width: 3, height: 3, fill: "#60a5fa" },
+      { x: 2, y: 2, width: 1, height: 1, fill: "#fbbf24" },
+    ],
+  },
+
+  // Flowers - mid
+  {
+    className: "absolute bottom-[17.5%] left-[10%] z-5",
+    width: 16,
+    height: 20,
+    viewBox: "0 0 8 10",
+    rects: [
+      { x: 3, y: 5, width: 2, height: 5, fill: "#15803d" },
+      { x: 2, y: 1, width: 4, height: 4, fill: "#f472b6" },
+      { x: 3, y: 2, width: 2, height: 2, fill: "#fbbf24" },
+    ],
+  },
+  {
+    className: "absolute bottom-[17.5%] left-[14%] z-5",
+    width: 14,
+    height: 18,
+    viewBox: "0 0 7 9",
+    rects: [
+      { x: 3, y: 5, width: 1, height: 4, fill: "#16a34a" },
+      { x: 2, y: 1, width: 3, height: 4, fill: "#c084fc" },
+      { x: 2, y: 2, width: 2, height: 2, fill: "#fcd34d" },
+    ],
+  },
+  {
+    className: "absolute bottom-[17.5%] right-[14%] z-5",
+    width: 16,
+    height: 20,
+    viewBox: "0 0 8 10",
+    rects: [
+      { x: 3, y: 5, width: 2, height: 5, fill: "#15803d" },
+      { x: 2, y: 1, width: 4, height: 4, fill: "#fb7185" },
+      { x: 3, y: 2, width: 2, height: 2, fill: "#fbbf24" },
+    ],
+  },
+  {
+    className: "absolute bottom-[17.5%] right-[10%] z-5",
+    width: 14,
+    height: 18,
+    viewBox: "0 0 7 9",
+    rects: [
+      { x: 3, y: 5, width: 1, height: 4, fill: "#16a34a" },
+      { x: 2, y: 1, width: 3, height: 4, fill: "#60a5fa" },
+      { x: 2, y: 2, width: 2, height: 2, fill: "#fcd34d" },
+    ],
+  },
+
+  // Flowers - near
+  {
+    className: "absolute bottom-[17%] left-[17%] z-10",
+    width: 20,
+    height: 24,
+    viewBox: "0 0 10 12",
+    rects: [
+      { x: 4, y: 6, width: 2, height: 6, fill: "#15803d" },
+      { x: 3, y: 2, width: 4, height: 4, fill: "#f472b6" },
+      { x: 4, y: 3, width: 2, height: 2, fill: "#fbbf24" },
+    ],
+  },
+  {
+    className: "absolute bottom-[17%] left-[19%] z-10",
+    width: 18,
+    height: 22,
+    viewBox: "0 0 9 11",
+    rects: [
+      { x: 4, y: 6, width: 1, height: 5, fill: "#16a34a" },
+      { x: 3, y: 2, width: 3, height: 4, fill: "#c084fc" },
+      { x: 3, y: 3, width: 2, height: 2, fill: "#fcd34d" },
+    ],
+  },
+  {
+    className: "absolute bottom-[17%] right-[17%] z-10",
+    width: 20,
+    height: 24,
+    viewBox: "0 0 10 12",
+    rects: [
+      { x: 4, y: 6, width: 2, height: 6, fill: "#15803d" },
+      { x: 3, y: 2, width: 4, height: 4, fill: "#fb7185" },
+      { x: 4, y: 3, width: 2, height: 2, fill: "#fbbf24" },
+    ],
+  },
+  {
+    className: "absolute bottom-[17%] right-[19%] z-10",
+    width: 18,
+    height: 22,
+    viewBox: "0 0 9 11",
+    rects: [
+      { x: 4, y: 6, width: 1, height: 5, fill: "#16a34a" },
+      { x: 3, y: 2, width: 3, height: 4, fill: "#60a5fa" },
+      { x: 3, y: 3, width: 2, height: 2, fill: "#fcd34d" },
+    ],
+  },
+
+  // Foreground flowers
+  {
+    className: "absolute bottom-[12%] left-[2%] z-30",
+    width: 40,
+    height: 50,
+    viewBox: "0 0 10 12",
+    rects: [
+      { x: 4, y: 6, width: 2, height: 6, fill: "#15803d" },
+      { x: 3, y: 2, width: 4, height: 4, fill: "#f472b6" },
+      { x: 4, y: 3, width: 2, height: 2, fill: "#fbbf24" },
+    ],
+  },
+  {
+    className: "absolute bottom-[11%] left-[5%] z-30",
+    width: 36,
+    height: 44,
+    viewBox: "0 0 9 11",
+    rects: [
+      { x: 4, y: 6, width: 1, height: 5, fill: "#16a34a" },
+      { x: 3, y: 2, width: 3, height: 4, fill: "#c084fc" },
+      { x: 3, y: 3, width: 2, height: 2, fill: "#fcd34d" },
+    ],
+  },
+  {
+    className: "absolute bottom-[10%] left-[8%] z-30",
+    width: 44,
+    height: 54,
+    viewBox: "0 0 10 12",
+    rects: [
+      { x: 4, y: 6, width: 2, height: 6, fill: "#15803d" },
+      { x: 3, y: 2, width: 4, height: 4, fill: "#fb7185" },
+      { x: 4, y: 3, width: 2, height: 2, fill: "#fbbf24" },
+    ],
+  },
+  {
+    className: "absolute bottom-[12%] right-[3%] z-30",
+    width: 38,
+    height: 48,
+    viewBox: "0 0 10 12",
+    rects: [
+      { x: 4, y: 6, width: 2, height: 6, fill: "#15803d" },
+      { x: 3, y: 2, width: 4, height: 4, fill: "#60a5fa" },
+      { x: 4, y: 3, width: 2, height: 2, fill: "#fbbf24" },
+    ],
+  },
+  {
+    className: "absolute bottom-[10%] right-[6%] z-30",
+    width: 42,
+    height: 52,
+    viewBox: "0 0 9 11",
+    rects: [
+      { x: 4, y: 6, width: 1, height: 5, fill: "#16a34a" },
+      { x: 3, y: 2, width: 3, height: 4, fill: "#ec4899" },
+      { x: 3, y: 3, width: 2, height: 2, fill: "#fcd34d" },
+    ],
+  },
+  {
+    className: "absolute bottom-[11%] right-[9%] z-30",
+    width: 34,
+    height: 42,
+    viewBox: "0 0 10 12",
+    rects: [
+      { x: 4, y: 6, width: 2, height: 6, fill: "#15803d" },
+      { x: 3, y: 2, width: 4, height: 4, fill: "#a78bfa" },
+      { x: 4, y: 3, width: 2, height: 2, fill: "#fbbf24" },
+    ],
+  },
+
+  // XL foreground flowers
+  {
+    className: "hidden xl:block absolute bottom-[12%] left-[25%] z-30",
+    width: 36,
+    height: 45,
+    viewBox: "0 0 9 11",
+    rects: [
+      { x: 4, y: 6, width: 1, height: 5, fill: "#16a34a" },
+      { x: 3, y: 2, width: 3, height: 4, fill: "#f472b6" },
+      { x: 3, y: 3, width: 2, height: 2, fill: "#fbbf24" },
+    ],
+  },
+  {
+    className: "hidden xl:block absolute bottom-[11%] left-[28%] z-30",
+    width: 38,
+    height: 48,
+    viewBox: "0 0 10 12",
+    rects: [
+      { x: 4, y: 6, width: 2, height: 6, fill: "#15803d" },
+      { x: 3, y: 2, width: 4, height: 4, fill: "#c084fc" },
+      { x: 4, y: 3, width: 2, height: 2, fill: "#fbbf24" },
+    ],
+  },
+  {
+    className: "hidden xl:block absolute bottom-[12%] right-[25%] z-30",
+    width: 35,
+    height: 44,
+    viewBox: "0 0 9 11",
+    rects: [
+      { x: 4, y: 6, width: 1, height: 5, fill: "#16a34a" },
+      { x: 3, y: 2, width: 3, height: 4, fill: "#fb7185" },
+      { x: 3, y: 3, width: 2, height: 2, fill: "#fcd34d" },
+    ],
+  },
+  {
+    className: "hidden xl:block absolute bottom-[10%] right-[28%] z-30",
+    width: 40,
+    height: 50,
+    viewBox: "0 0 10 12",
+    rects: [
+      { x: 4, y: 6, width: 2, height: 6, fill: "#15803d" },
+      { x: 3, y: 2, width: 4, height: 4, fill: "#a78bfa" },
+      { x: 4, y: 3, width: 2, height: 2, fill: "#fbbf24" },
+    ],
+  },
+
+  // 2XL foreground flowers
+  {
+    className: "hidden 2xl:block absolute bottom-[11%] left-[33%] z-30",
+    width: 34,
+    height: 42,
+    viewBox: "0 0 9 11",
+    rects: [
+      { x: 4, y: 6, width: 1, height: 5, fill: "#16a34a" },
+      { x: 3, y: 2, width: 3, height: 4, fill: "#ec4899" },
+      { x: 3, y: 3, width: 2, height: 2, fill: "#fcd34d" },
+    ],
+  },
+  {
+    className: "hidden 2xl:block absolute bottom-[12%] left-[36%] z-30",
+    width: 36,
+    height: 45,
+    viewBox: "0 0 10 12",
+    rects: [
+      { x: 4, y: 6, width: 2, height: 6, fill: "#15803d" },
+      { x: 3, y: 2, width: 4, height: 4, fill: "#60a5fa" },
+      { x: 4, y: 3, width: 2, height: 2, fill: "#fbbf24" },
+    ],
+  },
+  {
+    className: "hidden 2xl:block absolute bottom-[10%] right-[33%] z-30",
+    width: 38,
+    height: 47,
+    viewBox: "0 0 9 11",
+    rects: [
+      { x: 4, y: 6, width: 1, height: 5, fill: "#16a34a" },
+      { x: 3, y: 2, width: 3, height: 4, fill: "#f472b6" },
+      { x: 3, y: 3, width: 2, height: 2, fill: "#fcd34d" },
+    ],
+  },
+  {
+    className: "hidden 2xl:block absolute bottom-[11%] right-[36%] z-30",
+    width: 35,
+    height: 44,
+    viewBox: "0 0 10 12",
+    rects: [
+      { x: 4, y: 6, width: 2, height: 6, fill: "#15803d" },
+      { x: 3, y: 2, width: 4, height: 4, fill: "#c084fc" },
+      { x: 4, y: 3, width: 2, height: 2, fill: "#fbbf24" },
+    ],
+  },
+
+  // Grass patches
+  {
+    className: "absolute bottom-[8%] left-[0%] z-30",
+    width: 120,
+    height: 60,
+    viewBox: "0 0 25 12",
+    rects: [
+      { x: 2, y: 6, width: 3, height: 6, fill: "#22c55e" },
+      { x: 6, y: 4, width: 3, height: 8, fill: "#16a34a" },
+      { x: 10, y: 5, width: 3, height: 7, fill: "#22c55e" },
+      { x: 14, y: 6, width: 3, height: 6, fill: "#15803d" },
+      { x: 18, y: 4, width: 3, height: 8, fill: "#22c55e" },
+      { x: 22, y: 5, width: 3, height: 7, fill: "#16a34a" },
+    ],
+  },
+  {
+    className: "absolute bottom-[7%] right-[0%] z-30",
+    width: 130,
+    height: 65,
+    viewBox: "0 0 25 12",
+    rects: [
+      { x: 1, y: 5, width: 3, height: 7, fill: "#16a34a" },
+      { x: 5, y: 3, width: 3, height: 9, fill: "#22c55e" },
+      { x: 9, y: 5, width: 3, height: 7, fill: "#15803d" },
+      { x: 13, y: 4, width: 3, height: 8, fill: "#22c55e" },
+      { x: 17, y: 5, width: 3, height: 7, fill: "#16a34a" },
+      { x: 21, y: 3, width: 3, height: 9, fill: "#22c55e" },
+    ],
+  },
+  {
+    className: "hidden xl:block absolute bottom-[7%] left-[22%] z-30",
+    width: 100,
+    height: 50,
+    viewBox: "0 0 22 11",
+    rects: [
+      { x: 2, y: 5, width: 2, height: 6, fill: "#22c55e" },
+      { x: 5, y: 3, width: 2, height: 8, fill: "#16a34a" },
+      { x: 9, y: 4, width: 2, height: 7, fill: "#22c55e" },
+      { x: 13, y: 5, width: 2, height: 6, fill: "#15803d" },
+      { x: 17, y: 3, width: 2, height: 8, fill: "#22c55e" },
+    ],
+  },
+  {
+    className: "hidden xl:block absolute bottom-[8%] right-[22%] z-30",
+    width: 110,
+    height: 55,
+    viewBox: "0 0 24 12",
+    rects: [
+      { x: 1, y: 5, width: 2, height: 7, fill: "#16a34a" },
+      { x: 5, y: 3, width: 2, height: 9, fill: "#22c55e" },
+      { x: 9, y: 4, width: 2, height: 8, fill: "#15803d" },
+      { x: 14, y: 5, width: 2, height: 7, fill: "#22c55e" },
+      { x: 19, y: 3, width: 2, height: 9, fill: "#16a34a" },
+    ],
+  },
+  {
+    className: "hidden 2xl:block absolute bottom-[8%] left-[32%] z-30",
+    width: 90,
+    height: 45,
+    viewBox: "0 0 20 10",
+    rects: [
+      { x: 2, y: 4, width: 2, height: 6, fill: "#22c55e" },
+      { x: 6, y: 2, width: 2, height: 8, fill: "#16a34a" },
+      { x: 10, y: 3, width: 2, height: 7, fill: "#22c55e" },
+      { x: 14, y: 4, width: 2, height: 6, fill: "#15803d" },
+    ],
+  },
+  {
+    className: "hidden 2xl:block absolute bottom-[7%] right-[32%] z-30",
+    width: 95,
+    height: 48,
+    viewBox: "0 0 21 11",
+    rects: [
+      { x: 1, y: 4, width: 2, height: 7, fill: "#16a34a" },
+      { x: 5, y: 2, width: 2, height: 9, fill: "#22c55e" },
+      { x: 10, y: 3, width: 2, height: 8, fill: "#15803d" },
+      { x: 15, y: 4, width: 2, height: 7, fill: "#22c55e" },
+    ],
+  },
+
+  // Large foreground bushes
+  {
+    className: "absolute bottom-[10%] left-[10%] z-25",
+    width: 90,
+    height: 60,
+    viewBox: "0 0 22 15",
+    rects: [
+      { x: 2, y: 6, width: 18, height: 9, fill: "#166534" },
+      { x: 4, y: 3, width: 6, height: 5, fill: "#15803d" },
+      { x: 12, y: 4, width: 7, height: 4, fill: "#16a34a" },
+      { x: 6, y: 8, width: 4, height: 4, fill: "#22c55e", opacity: 0.4 },
+    ],
+  },
+  {
+    className: "absolute bottom-[9%] right-[12%] z-25",
+    width: 100,
+    height: 65,
+    viewBox: "0 0 28 18",
+    rects: [
+      { x: 2, y: 7, width: 24, height: 11, fill: "#166534" },
+      { x: 5, y: 3, width: 8, height: 6, fill: "#15803d" },
+      { x: 15, y: 4, width: 9, height: 5, fill: "#16a34a" },
+      { x: 8, y: 9, width: 5, height: 5, fill: "#22c55e", opacity: 0.35 },
+    ],
+  },
+  {
+    className: "hidden xl:block absolute bottom-[10%] left-[28%] z-25",
+    width: 80,
+    height: 55,
+    viewBox: "0 0 20 14",
+    rects: [
+      { x: 2, y: 5, width: 16, height: 9, fill: "#166534" },
+      { x: 4, y: 2, width: 5, height: 4, fill: "#15803d" },
+      { x: 10, y: 3, width: 6, height: 3, fill: "#16a34a" },
+    ],
+  },
+  {
+    className: "hidden xl:block absolute bottom-[9%] right-[28%] z-25",
+    width: 85,
+    height: 58,
+    viewBox: "0 0 21 15",
+    rects: [
+      { x: 2, y: 6, width: 17, height: 9, fill: "#166534" },
+      { x: 4, y: 3, width: 6, height: 4, fill: "#15803d" },
+      { x: 12, y: 4, width: 5, height: 3, fill: "#16a34a" },
+    ],
+  },
+  {
+    className: "hidden 2xl:block absolute bottom-[11%] left-[35%] z-25",
+    width: 70,
+    height: 48,
+    viewBox: "0 0 18 12",
+    rects: [
+      { x: 2, y: 5, width: 14, height: 7, fill: "#166534" },
+      { x: 3, y: 2, width: 5, height: 4, fill: "#15803d" },
+      { x: 9, y: 3, width: 5, height: 3, fill: "#16a34a" },
+    ],
+  },
+  {
+    className: "hidden 2xl:block absolute bottom-[10%] right-[35%] z-25",
+    width: 75,
+    height: 50,
+    viewBox: "0 0 19 13",
+    rects: [
+      { x: 2, y: 5, width: 15, height: 8, fill: "#166534" },
+      { x: 4, y: 2, width: 5, height: 4, fill: "#15803d" },
+      { x: 10, y: 3, width: 6, height: 3, fill: "#16a34a" },
+    ],
+  },
+
+  // Rocks
+  {
+    className: "absolute bottom-[11%] left-[18%] z-25",
+    width: 50,
+    height: 35,
+    viewBox: "0 0 15 10",
+    rects: [
+      { x: 2, y: 4, width: 11, height: 6, fill: "#6b7280" },
+      { x: 3, y: 3, width: 9, height: 2, fill: "#9ca3af" },
+      { x: 4, y: 5, width: 3, height: 2, fill: "#9ca3af", opacity: 0.5 },
+    ],
+  },
+  {
+    className: "absolute bottom-[10%] right-[20%] z-25",
+    width: 40,
+    height: 28,
+    viewBox: "0 0 12 8",
+    rects: [
+      { x: 1, y: 3, width: 10, height: 5, fill: "#6b7280" },
+      { x: 2, y: 2, width: 8, height: 2, fill: "#9ca3af" },
+      { x: 3, y: 4, width: 2, height: 2, fill: "#9ca3af", opacity: 0.5 },
+    ],
+  },
+  {
+    className: "hidden xl:block absolute bottom-[10%] left-[30%] z-25",
+    width: 42,
+    height: 30,
+    viewBox: "0 0 13 9",
+    rects: [
+      { x: 2, y: 4, width: 9, height: 5, fill: "#6b7280" },
+      { x: 3, y: 3, width: 7, height: 2, fill: "#9ca3af" },
+      { x: 4, y: 5, width: 2, height: 2, fill: "#9ca3af", opacity: 0.5 },
+    ],
+  },
+  {
+    className: "hidden xl:block absolute bottom-[11%] right-[30%] z-25",
+    width: 38,
+    height: 26,
+    viewBox: "0 0 11 8",
+    rects: [
+      { x: 1, y: 3, width: 9, height: 5, fill: "#6b7280" },
+      { x: 2, y: 2, width: 7, height: 2, fill: "#9ca3af" },
+    ],
+  },
+  {
+    className: "hidden 2xl:block absolute bottom-[11%] left-[38%] z-25",
+    width: 35,
+    height: 24,
+    viewBox: "0 0 10 7",
+    rects: [
+      { x: 1, y: 3, width: 8, height: 4, fill: "#6b7280" },
+      { x: 2, y: 2, width: 6, height: 2, fill: "#9ca3af" },
+    ],
+  },
+  {
+    className: "hidden 2xl:block absolute bottom-[10%] right-[38%] z-25",
+    width: 32,
+    height: 22,
+    viewBox: "0 0 9 6",
+    rects: [
+      { x: 1, y: 2, width: 7, height: 4, fill: "#6b7280" },
+      { x: 2, y: 1, width: 5, height: 2, fill: "#9ca3af" },
+    ],
+  },
+
+  // Extra bushes
+  {
+    className: "absolute bottom-[17%] left-[8%] z-5",
+    width: 45,
+    height: 30,
+    viewBox: "0 0 22 15",
+    rects: [
+      { x: 2, y: 6, width: 18, height: 9, fill: "#166534" },
+      { x: 4, y: 3, width: 6, height: 5, fill: "#15803d" },
+      { x: 12, y: 4, width: 7, height: 4, fill: "#16a34a" },
+      { x: 6, y: 8, width: 3, height: 3, fill: "#22c55e", opacity: 0.4 },
+    ],
+  },
+  {
+    className: "absolute bottom-[17%] right-[4%] z-5",
+    width: 55,
+    height: 35,
+    viewBox: "0 0 28 18",
+    rects: [
+      { x: 2, y: 7, width: 24, height: 11, fill: "#166534" },
+      { x: 5, y: 3, width: 8, height: 6, fill: "#15803d" },
+      { x: 15, y: 4, width: 9, height: 5, fill: "#16a34a" },
+      { x: 8, y: 9, width: 4, height: 4, fill: "#22c55e", opacity: 0.35 },
+    ],
+  },
+  {
+    className: "absolute bottom-[17%] left-[24%] z-5",
+    width: 35,
+    height: 24,
+    viewBox: "0 0 18 12",
+    rects: [
+      { x: 1, y: 5, width: 16, height: 7, fill: "#15803d" },
+      { x: 3, y: 2, width: 5, height: 4, fill: "#16a34a" },
+      { x: 10, y: 3, width: 6, height: 3, fill: "#22c55e" },
+    ],
+  },
+
+  // Grass patches - varied sizes
+  {
+    className: "absolute bottom-[16.5%] left-[4%] z-0",
+    width: 50,
+    height: 24,
+    viewBox: "0 0 25 12",
+    rects: [
+      { x: 2, y: 6, width: 2, height: 6, fill: "#22c55e" },
+      { x: 5, y: 4, width: 2, height: 8, fill: "#16a34a" },
+      { x: 9, y: 5, width: 2, height: 7, fill: "#22c55e" },
+      { x: 13, y: 6, width: 2, height: 6, fill: "#15803d" },
+      { x: 16, y: 4, width: 2, height: 8, fill: "#22c55e" },
+      { x: 20, y: 5, width: 2, height: 7, fill: "#16a34a" },
+    ],
+  },
+  {
+    className: "absolute bottom-[16.5%] left-[16%] z-0",
+    width: 40,
+    height: 20,
+    viewBox: "0 0 20 10",
+    rects: [
+      { x: 2, y: 5, width: 2, height: 5, fill: "#22c55e" },
+      { x: 5, y: 3, width: 2, height: 7, fill: "#16a34a" },
+      { x: 8, y: 4, width: 2, height: 6, fill: "#22c55e" },
+      { x: 12, y: 5, width: 2, height: 5, fill: "#15803d" },
+      { x: 15, y: 3, width: 2, height: 7, fill: "#22c55e" },
+    ],
+  },
+  {
+    className: "absolute bottom-[16.5%] right-[16%] z-0",
+    width: 35,
+    height: 18,
+    viewBox: "0 0 18 9",
+    rects: [
+      { x: 1, y: 4, width: 2, height: 5, fill: "#16a34a" },
+      { x: 4, y: 2, width: 2, height: 7, fill: "#22c55e" },
+      { x: 8, y: 4, width: 2, height: 5, fill: "#15803d" },
+      { x: 12, y: 3, width: 2, height: 6, fill: "#22c55e" },
+      { x: 15, y: 4, width: 2, height: 5, fill: "#16a34a" },
+    ],
+  },
+  {
+    className: "absolute bottom-[16.5%] right-[3%] z-0",
+    width: 45,
+    height: 22,
+    viewBox: "0 0 22 11",
+    rects: [
+      { x: 2, y: 5, width: 2, height: 6, fill: "#22c55e" },
+      { x: 6, y: 3, width: 2, height: 8, fill: "#16a34a" },
+      { x: 10, y: 4, width: 2, height: 7, fill: "#22c55e" },
+      { x: 14, y: 5, width: 2, height: 6, fill: "#15803d" },
+      { x: 18, y: 3, width: 2, height: 8, fill: "#22c55e" },
+    ],
+  },
+
+  // Small shrubs
+  {
+    className: "absolute bottom-[17.2%] left-[1%] z-5 opacity-90",
+    width: 30,
+    height: 20,
+    viewBox: "0 0 15 10",
+    rects: [
+      { x: 1, y: 5, width: 13, height: 5, fill: "#166534" },
+      { x: 3, y: 3, width: 4, height: 3, fill: "#15803d" },
+      { x: 8, y: 4, width: 5, height: 2, fill: "#16a34a" },
+    ],
+  },
+  {
+    className: "absolute bottom-[17.2%] right-[1%] z-5 opacity-90",
+    width: 35,
+    height: 22,
+    viewBox: "0 0 18 11",
+    rects: [
+      { x: 1, y: 5, width: 16, height: 6, fill: "#166534" },
+      { x: 3, y: 2, width: 5, height: 4, fill: "#15803d" },
+      { x: 10, y: 3, width: 6, height: 3, fill: "#16a34a" },
+    ],
+  },
+
+  // Bird and butterfly
+  {
+    className: "absolute bottom-[42%] right-[9%] z-20",
+    width: 20,
+    height: 16,
+    viewBox: "0 0 10 8",
+    rects: [
+      { x: 2, y: 3, width: 5, height: 3, fill: "#f97316" },
+      { x: 6, y: 4, width: 2, height: 2, fill: "#f97316" },
+      { x: 7, y: 4, width: 2, height: 1, fill: "#fbbf24" },
+      { x: 3, y: 2, width: 2, height: 1, fill: "#f97316" },
+      { x: 2, y: 6, width: 1, height: 2, fill: "#78350f" },
+      { x: 5, y: 6, width: 1, height: 2, fill: "#78350f" },
+    ],
+  },
+  {
+    className: "absolute bottom-[45%] left-[15%] z-20",
+    width: 16,
+    height: 12,
+    viewBox: "0 0 8 6",
+    rects: [
+      { x: 3, y: 1, width: 2, height: 4, fill: "#1f2937" },
+      { x: 1, y: 1, width: 2, height: 3, fill: "#f472b6" },
+      { x: 5, y: 1, width: 2, height: 3, fill: "#f472b6" },
+      { x: 0, y: 2, width: 1, height: 2, fill: "#ec4899" },
+      { x: 7, y: 2, width: 1, height: 2, fill: "#ec4899" },
+    ],
+  },
+];
+---
+
+{decorations.map((item) => (
+  <div class={item.className}>
+    <PixelArt
+      width={item.width}
+      height={item.height}
+      viewBox={item.viewBox}
+      rects={item.rects}
+      class={item.svgClass}
+    />
+  </div>
+))}
