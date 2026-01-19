@@ -7,13 +7,15 @@ type HouseDoorProps = {
   isOpen: boolean;
 };
 
-export default function HouseDoor({ className, style, isOpen }: HouseDoorProps) {
+export default function HouseDoor({
+  className,
+  style,
+  isOpen,
+}: HouseDoorProps) {
   return (
     <svg
-      width="112"
-      height="144"
       viewBox="0 0 28 36"
-      className={className}
+      className={`w-20 h-25.75 sm:w-28 sm:h-36 ${className ?? ""}`}
       style={{
         imageRendering: "pixelated",
         transformOrigin: "left center",

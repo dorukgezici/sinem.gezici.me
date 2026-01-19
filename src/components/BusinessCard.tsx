@@ -66,7 +66,7 @@ export default function BusinessCard() {
   return (
     <div
       ref={cardRef}
-      className="absolute bottom-[7%] left-1/2 -translate-x-1/2 w-[calc(100%-24px)] sm:w-[calc(100%-32px)] md:w-full max-w-md pt-30 pointer-events-auto h-fit max-h-[calc(100vh-100px)] flex flex-col"
+      className="absolute bottom-[5%] sm:bottom-[7%] left-1/2 -translate-x-1/2 w-[calc(100%-24px)] sm:w-[calc(100%-32px)] md:w-full max-w-md pt-30 pointer-events-auto h-fit max-h-[calc(100vh-70px)] sm:max-h-[calc(100vh-100px)] flex flex-col"
     >
       {/* Smoke Animation - positioned above chimney */}
       <div
@@ -140,7 +140,7 @@ export default function BusinessCard() {
       <div
         id="house-body"
         className={cn(
-          "relative z-10 bg-warm-cream border-x-4 border-b-4 border-charcoal rounded-b-[40px] p-6 pb-36 shadow-2xl flex flex-col items-center text-center space-y-3 pt-8 flex-1 min-h-0 overflow-hidden",
+          "relative z-10 bg-warm-cream border-x-4 border-b-4 border-charcoal rounded-b-[40px] p-6 pb-28 sm:pb-36 shadow-2xl flex flex-col items-center text-center space-y-3 pt-8 flex-1 min-h-0 overflow-hidden",
           "before:absolute before:inset-0 before:bg-amber-50/40 before:rounded-b-[36px] before:pointer-events-none",
         )}
       >
@@ -273,10 +273,8 @@ export default function BusinessCard() {
 
         {/* Pixel-art steps - using stone colors that complement wood */}
         <div
-          className="-mt-1"
+          className="-mt-1 w-21.5 h-1.5 sm:w-30 sm:h-2"
           style={{
-            width: "120px",
-            height: "8px",
             backgroundColor: "#9A8B7A",
             borderLeft: "2px solid #7A6B5A",
             borderRight: "2px solid #7A6B5A",
@@ -285,9 +283,8 @@ export default function BusinessCard() {
           }}
         />
         <div
+          className="w-24.5 h-1.5 sm:w-34 sm:h-2"
           style={{
-            width: "136px",
-            height: "8px",
             backgroundColor: "#8A7B6A",
             borderLeft: "2px solid #6A5B4A",
             borderRight: "2px solid #6A5B4A",

@@ -7,23 +7,7 @@ import SceneForeground from "../components/scene/SceneForeground.astro";
 ---
 
 <Layout title="Sinem Demiröz Gezici">
-    {/* Mobile Road - Always visible on mobile */}
-    <div
-        class="md:hidden fixed inset-0 pointer-events-none overflow-hidden -z-10"
-    >
-        {/* Ground / Road Baseline for Mobile */}
-        <div
-            class="absolute bottom-0 left-0 right-0 h-[7%] bg-charcoal/5 border-t-2 border-charcoal/10 z-0"
-        >
-            {/* Road dashed line */}
-            <div
-                class="absolute top-[50%] left-0 right-0 h-0.5 border-t border-dashed border-charcoal/10"
-            >
-            </div>
-        </div>
-    </div>
-
-    {/* Environment - Desktop Only */}
+    {/* Environment */}
     <SceneDecorations>
         <SceneForeground />
     </SceneDecorations>

@@ -9,10 +9,8 @@ type DoorFrameProps = {
 export default function DoorFrame({ className, style }: DoorFrameProps) {
   return (
     <svg
-      width="112"
-      height="144"
       viewBox="0 0 28 36"
-      className={className}
+      className={`w-20 h-25.75 sm:w-28 sm:h-36 ${className ?? ""}`}
       style={{ imageRendering: "pixelated", ...style }}
     >
       <rect x="0" y="0" width="28" height="36" fill={HOUSE_COLORS.woodShadow} />
