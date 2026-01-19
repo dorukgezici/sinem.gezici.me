@@ -5,6 +5,22 @@ import PhaserScene from "../components/PhaserScene";
 ---
 
 <Layout title="Sinem Demiröz Gezici">
+    {/* Mobile Road - Always visible on mobile */}
+    <div
+        class="md:hidden fixed inset-0 pointer-events-none overflow-hidden -z-10"
+    >
+        {/* Ground / Road Baseline for Mobile */}
+        <div
+            class="absolute bottom-0 left-0 right-0 h-[7%] bg-charcoal/5 border-t-2 border-charcoal/10 z-0"
+        >
+            {/* Road dashed line */}
+            <div
+                class="absolute top-[50%] left-0 right-0 h-0.5 border-t border-dashed border-charcoal/10"
+            >
+            </div>
+        </div>
+    </div>
+
     {/* Environment - Desktop Only */}
     <div
         class="hidden md:block fixed inset-0 pointer-events-none overflow-hidden -z-10"
@@ -1445,7 +1461,9 @@ import PhaserScene from "../components/PhaserScene";
         </div>
     </div>
 
-    <main class="fixed inset-0 w-full h-screen overflow-hidden">
+    <main
+        class="fixed inset-0 w-full h-screen overflow-hidden px-3 sm:px-4 md:px-0"
+    >
         <PhaserScene client:only="react" />
         <BusinessCard client:load />
     </main>

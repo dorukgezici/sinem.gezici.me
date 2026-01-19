@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useMemo } from "react";
 import { cn } from "../lib/utils";
 import ExperienceList from "./ExperienceList";
 import SocialLinks from "./SocialLinks";
@@ -67,11 +67,97 @@ export default function BusinessCard() {
 
   const [doorOpen, setDoorOpen] = useState(false);
 
+  // Generate stable smoke puff keys to avoid hydration issues
+  const smokePuffs = useMemo(
+    () =>
+      [...Array(12)].map((_, i) => ({
+        id: i,
+        delay: i * 0.4,
+        offsetX: ((i % 3) - 1) * 8,
+        size: 40 + (i % 3) * 12,
+      })),
+    [],
+  );
+
   return (
     <div
       ref={cardRef}
-      className="absolute bottom-[7%] left-1/2 -translate-x-1/2 w-full max-w-md pt-30 pointer-events-auto h-fit max-h-[calc(100vh-100px)] flex flex-col"
+      className="absolute bottom-[7%] left-1/2 -translate-x-1/2 w-[calc(100%-24px)] sm:w-[calc(100%-32px)] md:w-full max-w-md pt-30 pointer-events-auto h-fit max-h-[calc(100vh-100px)] flex flex-col"
     >
+      {/* Smoke Animation - positioned above chimney */}
+      <div
+        className="absolute z-30 pointer-events-none overflow-visible"
+        style={{
+          left: "20%",
+          top: "-105px",
+          width: "60px",
+          height: "150px",
+          transform: "translateX(-50%)",
+        }}
+      >
+        {smokePuffs.map((puff) => (
+          <div
+            key={`smoke-${puff.id}`}
+            className="smoke-puff absolute"
+            style={{
+              bottom: "0",
+              left: "50%",
+              animation: `smokeRise 5s ease-out infinite`,
+              animationDelay: `${puff.delay}s`,
+              width: `${puff.size}px`,
+              height: `${puff.size}px`,
+              marginLeft: `${puff.offsetX}px`,
+              opacity: 0,
+            }}
+          >
+            {/* Pixel smoke puff */}
+            <svg
+              viewBox="0 0 24 24"
+              className="w-full h-full"
+              style={{ imageRendering: "pixelated" }}
+            >
+              {/* Main cloud body */}
+              <rect x="6" y="8" width="12" height="12" fill="#B8B8B8" />
+              {/* Top bumps */}
+              <rect x="8" y="4" width="8" height="6" fill="#C8C8C8" />
+              <rect x="4" y="10" width="6" height="8" fill="#A8A8A8" />
+              <rect x="14" y="10" width="6" height="8" fill="#D0D0D0" />
+              {/* Extra fluff */}
+              <rect x="10" y="2" width="4" height="4" fill="#D8D8D8" />
+            </svg>
+          </div>
+        ))}
+        <style>
+          {`
+            @keyframes smokeRise {
+              0% {
+                transform: translateX(-50%) translateY(0) scale(0.3);
+                opacity: 0;
+              }
+              5% {
+                opacity: 0.6;
+              }
+              25% {
+                transform: translateX(-50%) translateY(-35px) scale(0.6);
+                opacity: 0.5;
+              }
+              50% {
+                transform: translateX(-40%) translateY(-70px) scale(0.85);
+                opacity: 0.35;
+              }
+              75% {
+                transform: translateX(-25%) translateY(-100px) scale(1.1);
+                opacity: 0.2;
+              }
+              100% {
+                transform: translateX(-10%) translateY(-130px) scale(1.3);
+                opacity: 0;
+              }
+            }
+          `}
+        </style>
+      </div>
+
       {/* Pitched Roof with Pixel-Art Shingles */}
       <div
         id="house-roof"
@@ -302,13 +388,27 @@ export default function BusinessCard() {
           "before:absolute before:inset-0 before:bg-amber-50/40 before:rounded-b-[36px] before:pointer-events-none",
         )}
       >
-        {/* Window (Avatar) */}
+        {/* Window (Avatar) - Click to trigger UFO abduction! */}
         <div id="house-window" className="relative mb-1 shrink-0">
           {/* Pixel-art circular window frame */}
-          <div className="relative w-24 h-24 group transition-transform hover:scale-105">
+          <div
+            className="relative w-24 h-24 group transition-all duration-300 hover:scale-110 cursor-pointer"
+            onClick={() => {
+              window.dispatchEvent(new CustomEvent("avatar-clicked"));
+            }}
+            title="Click me! 👽"
+          >
+            {/* Hover glow effect - alien green/blue */}
+            <div
+              className="absolute -inset-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-md"
+              style={{
+                background:
+                  "radial-gradient(circle, rgba(56, 189, 248, 0.4) 0%, rgba(74, 222, 128, 0.2) 50%, transparent 70%)",
+              }}
+            />
             {/* Outer frame - using wood dark */}
             <div
-              className="absolute inset-0 rounded-full"
+              className="absolute inset-0 rounded-full transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(56,189,248,0.5)]"
               style={{ backgroundColor: COLORS.woodShadow }}
             />
             {/* Inner frame - using wood medium */}
@@ -322,9 +422,12 @@ export default function BusinessCard() {
               <img
                 src="/avatar.png"
                 alt="Profile"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover pointer-events-none transition-all duration-300 group-hover:brightness-110"
               />
             </div>
+            {/* Sparkle hints on hover */}
+            <div className="absolute -top-1 -right-1 w-2 h-2 bg-cyan-400 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping" />
+            <div className="absolute -bottom-1 -left-1 w-1.5 h-1.5 bg-green-400 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping animation-delay-200" />
           </div>
         </div>
 
@@ -384,9 +487,12 @@ export default function BusinessCard() {
           </svg>
 
           {/* Footer content inside the door (visible when open) */}
-          <div
+          <a
+            href="https://doruk.gezici.me"
+            target="_blank"
+            rel="noopener noreferrer"
             className={cn(
-              "absolute inset-0 flex items-center justify-center transition-opacity duration-300",
+              "absolute inset-0 flex items-center justify-center transition-opacity duration-300 hover:text-white",
               doorOpen ? "opacity-100" : "opacity-0",
             )}
             style={{
@@ -394,6 +500,7 @@ export default function BusinessCard() {
               left: "12px",
               right: "12px",
               bottom: "16px",
+              textDecoration: "none",
             }}
           >
             <div
@@ -439,20 +546,9 @@ export default function BusinessCard() {
                 <rect x="6" y="8" width="2" height="2" fill="#FF6B6B" />
               </svg>
               <span style={{ color: "#D4A03A" }}> by </span>
-              <a
-                href="https://doruk.gezici.me"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white transition-colors"
-                style={{
-                  color: "#E8B94A",
-                  textDecoration: "none",
-                }}
-              >
-                @dorukgezici
-              </a>
+              <span>@dorukgezici</span>
             </div>
-          </div>
+          </a>
 
           {/* Animated door (swings open) */}
           <svg
