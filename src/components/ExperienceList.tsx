@@ -45,21 +45,21 @@ const experiences = [
 
 export default function ExperienceList() {
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-2 md:gap-3">
       {experiences.map((exp, index) => (
         <div key={index} className="group">
-          <h3 className="text-[10px] text-charcoal leading-relaxed">
+          <h3 className="text-[9px] md:text-[10px] text-charcoal leading-relaxed">
             {exp.role}
           </h3>
           <a
             href={exp.companyUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[9px] text-muted hover:text-coral transition-colors"
+            className="text-[8px] md:text-[9px] text-muted hover:text-coral transition-colors"
           >
             {exp.company}
           </a>
-          <p className="text-[8px] text-muted/70 mt-0.5">{exp.period}</p>
+          <p className="text-[7px] md:text-[8px] text-muted/70 mt-0.5">{exp.period}</p>
         </div>
       ))}
     </div>

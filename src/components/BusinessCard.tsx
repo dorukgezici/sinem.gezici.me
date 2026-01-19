@@ -70,12 +70,12 @@ export default function BusinessCard() {
   return (
     <div
       ref={cardRef}
-      className="absolute bottom-[7%] left-1/2 -translate-x-1/2 w-full max-w-md pt-30 pointer-events-auto h-fit max-h-[calc(100vh-100px)] flex flex-col"
+      className="absolute bottom-[7%] md:bottom-[7%] left-1/2 -translate-x-1/2 w-full max-w-md pt-20 md:pt-30 pointer-events-auto h-fit max-h-[calc(100vh-80px)] md:max-h-[calc(100vh-100px)] flex flex-col"
     >
       {/* Pitched Roof with Pixel-Art Shingles */}
       <div
         id="house-roof"
-        className="absolute left-0 right-0 top-0 h-30 z-20 shrink-0"
+        className="absolute left-0 right-0 top-0 h-20 md:h-30 z-20 shrink-0"
       >
         <svg
           viewBox="0 0 400 120"
@@ -298,14 +298,14 @@ export default function BusinessCard() {
       <div
         id="house-body"
         className={cn(
-          "relative z-10 bg-warm-cream border-x-4 border-b-4 border-charcoal rounded-b-[40px] p-6 pb-36 shadow-2xl flex flex-col items-center text-center space-y-3 pt-8 flex-1 min-h-0 overflow-hidden",
+          "relative z-10 bg-warm-cream border-x-4 border-b-4 border-charcoal rounded-b-[40px] p-4 md:p-6 pb-24 md:pb-36 shadow-2xl flex flex-col items-center text-center space-y-3 pt-6 md:pt-8 flex-1 min-h-0 overflow-hidden",
           "before:absolute before:inset-0 before:bg-amber-50/40 before:rounded-b-[36px] before:pointer-events-none",
         )}
       >
         {/* Window (Avatar) */}
         <div id="house-window" className="relative mb-1 shrink-0">
           {/* Pixel-art circular window frame */}
-          <div className="relative w-24 h-24 group transition-transform hover:scale-105">
+          <div className="relative w-20 h-20 md:w-24 md:h-24 group transition-transform hover:scale-105">
             {/* Outer frame - using wood dark */}
             <div
               className="absolute inset-0 rounded-full"
@@ -329,13 +329,13 @@ export default function BusinessCard() {
         </div>
 
         {/* Content */}
-        <div className="space-y-1 mt-2 shrink-0">
-          <h1 className="text-sm leading-tight tracking-tight text-charcoal">
+        <div className="space-y-1 mt-1 md:mt-2 shrink-0">
+          <h1 className="text-[11px] md:text-sm leading-tight tracking-tight text-charcoal">
             Sinem Demiröz Gezici
           </h1>
           <a
             href="mailto:sinem@gezici.me"
-            className="text-[10px] text-muted hover:text-coral transition-colors block"
+            className="text-[9px] md:text-[10px] text-muted hover:text-coral transition-colors block"
           >
             sinem@gezici.me
           </a>
@@ -345,13 +345,13 @@ export default function BusinessCard() {
           <SocialLinks />
         </div>
 
-        <div className="w-full h-px bg-charcoal/10 shrink-0" />
+        <div className="w-full h-px bg-charcoal/10 shrink-0 my-1 md:my-0" />
 
-        <div className="w-full text-left space-y-2 flex-1 min-h-0 flex flex-col overflow-hidden">
-          <h2 className="text-[8px] uppercase tracking-[0.15em] text-muted shrink-0">
+        <div className="w-full text-left space-y-1 md:space-y-2 flex-1 min-h-0 flex flex-col overflow-hidden">
+          <h2 className="text-[7px] md:text-[8px] uppercase tracking-[0.15em] text-muted shrink-0">
             Experience
           </h2>
-          <div className="flex-1 min-h-0 overflow-y-auto pr-2 mb-6 scrollbar-thin">
+          <div className="flex-1 min-h-0 overflow-y-auto pr-1 md:pr-2 mb-4 md:mb-6 scrollbar-thin">
             <ExperienceList />
           </div>
         </div>
@@ -359,7 +359,7 @@ export default function BusinessCard() {
 
       {/* Pixel-Art Door - Interactive Footer */}
       <div
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center cursor-pointer group"
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center cursor-pointer group scale-75 md:scale-100"
         onMouseEnter={() => setDoorOpen(true)}
         onMouseLeave={() => setDoorOpen(false)}
       >
