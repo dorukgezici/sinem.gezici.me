@@ -1,16 +1,1452 @@
 ---
-
+import Layout from "../layouts/Layout.astro";
+import BusinessCard from "../components/BusinessCard";
+import PhaserScene from "../components/PhaserScene";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Sinem Demiröz Gezici">
+    {/* Environment - Desktop Only */}
+    <div
+        class="hidden md:block fixed inset-0 pointer-events-none overflow-hidden -z-10"
+    >
+        {/* Sky decorations - Clouds */}
+        <div class="absolute top-[5%] left-[5%] opacity-60">
+            <svg width="120" height="60" viewBox="0 0 60 30">
+                <rect x="10" y="15" width="40" height="10" fill="white"></rect>
+                <rect x="15" y="10" width="10" height="5" fill="white"></rect>
+                <rect x="30" y="8" width="15" height="7" fill="white"></rect>
+                <rect x="5" y="18" width="8" height="7" fill="white"></rect>
+            </svg>
+        </div>
+        <div class="absolute top-[12%] right-[15%] opacity-50">
+            <svg width="100" height="50" viewBox="0 0 50 25">
+                <rect x="5" y="12" width="35" height="8" fill="white"></rect>
+                <rect x="10" y="7" width="12" height="5" fill="white"></rect>
+                <rect x="25" y="5" width="10" height="7" fill="white"></rect>
+            </svg>
+        </div>
+        <div class="absolute top-[8%] left-[35%] opacity-40">
+            <svg width="80" height="40" viewBox="0 0 40 20">
+                <rect x="5" y="10" width="30" height="7" fill="white"></rect>
+                <rect x="8" y="5" width="8" height="5" fill="white"></rect>
+                <rect x="20" y="6" width="12" height="4" fill="white"></rect>
+            </svg>
+        </div>
+        <div class="absolute top-[18%] right-[40%] opacity-35">
+            <svg width="60" height="30" viewBox="0 0 30 15">
+                <rect x="3" y="8" width="24" height="5" fill="white"></rect>
+                <rect x="8" y="4" width="6" height="4" fill="white"></rect>
+                <rect x="16" y="5" width="8" height="3" fill="white"></rect>
+            </svg>
+        </div>
+        <div class="absolute top-[3%] left-[55%] opacity-55">
+            <svg width="140" height="70" viewBox="0 0 70 35">
+                <rect x="10" y="18" width="50" height="12" fill="white"></rect>
+                <rect x="18" y="10" width="14" height="8" fill="white"></rect>
+                <rect x="38" y="8" width="18" height="10" fill="white"></rect>
+                <rect x="5" y="22" width="10" height="8" fill="white"></rect>
+            </svg>
+        </div>
+        <div class="absolute top-[15%] left-[18%] opacity-45">
+            <svg width="90" height="45" viewBox="0 0 45 22">
+                <rect x="5" y="12" width="35" height="8" fill="white"></rect>
+                <rect x="12" y="6" width="10" height="6" fill="white"></rect>
+                <rect x="26" y="7" width="12" height="5" fill="white"></rect>
+            </svg>
+        </div>
+        <div class="absolute top-[6%] right-[28%] opacity-50">
+            <svg width="110" height="55" viewBox="0 0 55 27">
+                <rect x="8" y="14" width="40" height="10" fill="white"></rect>
+                <rect x="14" y="8" width="12" height="6" fill="white"></rect>
+                <rect x="30" y="6" width="14" height="8" fill="white"></rect>
+            </svg>
+        </div>
+
+        {/* Wide screen clouds (xl: 1280px+) */}
+        <div class="hidden xl:block absolute top-[10%] left-[42%] opacity-45">
+            <svg width="100" height="50" viewBox="0 0 50 25">
+                <rect x="5" y="12" width="35" height="8" fill="white"></rect>
+                <rect x="10" y="7" width="12" height="5" fill="white"></rect>
+                <rect x="25" y="5" width="10" height="7" fill="white"></rect>
+            </svg>
+        </div>
+        <div class="hidden xl:block absolute top-[20%] left-[48%] opacity-40">
+            <svg width="80" height="40" viewBox="0 0 40 20">
+                <rect x="5" y="10" width="30" height="7" fill="white"></rect>
+                <rect x="8" y="5" width="8" height="5" fill="white"></rect>
+                <rect x="20" y="6" width="12" height="4" fill="white"></rect>
+            </svg>
+        </div>
+        <div class="hidden xl:block absolute top-[7%] right-[42%] opacity-50">
+            <svg width="90" height="45" viewBox="0 0 45 22">
+                <rect x="5" y="12" width="35" height="8" fill="white"></rect>
+                <rect x="12" y="6" width="10" height="6" fill="white"></rect>
+                <rect x="26" y="7" width="12" height="5" fill="white"></rect>
+            </svg>
+        </div>
+
+        {/* Extra wide screen clouds (2xl: 1536px+) */}
+        <div class="hidden 2xl:block absolute top-[5%] left-[45%] opacity-55">
+            <svg width="120" height="60" viewBox="0 0 60 30">
+                <rect x="10" y="15" width="40" height="10" fill="white"></rect>
+                <rect x="15" y="10" width="10" height="5" fill="white"></rect>
+                <rect x="30" y="8" width="15" height="7" fill="white"></rect>
+                <rect x="5" y="18" width="8" height="7" fill="white"></rect>
+            </svg>
+        </div>
+        <div class="hidden 2xl:block absolute top-[15%] right-[45%] opacity-45">
+            <svg width="95" height="48" viewBox="0 0 48 24">
+                <rect x="6" y="13" width="36" height="8" fill="white"></rect>
+                <rect x="12" y="7" width="11" height="6" fill="white"></rect>
+                <rect x="27" y="6" width="12" height="6" fill="white"></rect>
+            </svg>
+        </div>
+        <div class="hidden 2xl:block absolute top-[12%] left-[52%] opacity-35">
+            <svg width="70" height="35" viewBox="0 0 35 18">
+                <rect x="4" y="9" width="27" height="6" fill="white"></rect>
+                <rect x="9" y="5" width="7" height="4" fill="white"></rect>
+                <rect x="18" y="6" width="10" height="3" fill="white"></rect>
+            </svg>
+        </div>
+
+        {/* Sun - bigger */}
+        <div class="absolute top-[4%] right-[6%]">
+            <svg width="100" height="100" viewBox="0 0 50 50">
+                {/* Main sun body */}
+                <rect x="17" y="17" width="16" height="16" fill="#fbbf24"
+                ></rect>
+                <rect
+                    x="15"
+                    y="15"
+                    width="20"
+                    height="20"
+                    fill="#fcd34d"
+                    opacity="0.5"></rect>
+                {/* Sun rays */}
+                <rect
+                    x="22"
+                    y="4"
+                    width="6"
+                    height="8"
+                    fill="#fbbf24"
+                    opacity="0.8"></rect>
+                <rect
+                    x="22"
+                    y="38"
+                    width="6"
+                    height="8"
+                    fill="#fbbf24"
+                    opacity="0.8"></rect>
+                <rect
+                    x="4"
+                    y="22"
+                    width="8"
+                    height="6"
+                    fill="#fbbf24"
+                    opacity="0.8"></rect>
+                <rect
+                    x="38"
+                    y="22"
+                    width="8"
+                    height="6"
+                    fill="#fbbf24"
+                    opacity="0.8"></rect>
+                {/* Diagonal rays */}
+                <rect
+                    x="8"
+                    y="8"
+                    width="5"
+                    height="5"
+                    fill="#fbbf24"
+                    opacity="0.6"></rect>
+                <rect
+                    x="37"
+                    y="8"
+                    width="5"
+                    height="5"
+                    fill="#fbbf24"
+                    opacity="0.6"></rect>
+                <rect
+                    x="8"
+                    y="37"
+                    width="5"
+                    height="5"
+                    fill="#fbbf24"
+                    opacity="0.6"></rect>
+                <rect
+                    x="37"
+                    y="37"
+                    width="5"
+                    height="5"
+                    fill="#fbbf24"
+                    opacity="0.6"></rect>
+            </svg>
+        </div>
+
+        {/* Ground / Road Baseline */}
+        <div
+            class="absolute bottom-0 left-0 right-0 h-[18%] bg-charcoal/5 border-t-8 border-charcoal/10 z-0"
+        >
+            {/* Sidewalk/Curb */}
+            <div
+                class="absolute top-0 left-0 right-0 h-4 bg-charcoal/5 border-b-2 border-charcoal/10"
+            >
+            </div>
+
+            {/* Road dashed line */}
+            <div
+                class="absolute top-[60%] left-0 right-0 h-1 border-t-4 border-dashed border-charcoal/10"
+            >
+            </div>
+        </div>
+
+        {
+            /* Distant background - hills and city skyline (z-0, behind everything) */
+        }
+        <div class="absolute bottom-[18%] left-0 right-0 z-0 opacity-30">
+            <svg
+                width="100%"
+                height="280"
+                viewBox="0 0 800 140"
+                preserveAspectRatio="none"
+            >
+                {/* Left hills */}
+                <rect x="0" y="100" width="80" height="40" fill="#4b5563"
+                ></rect>
+                <rect x="15" y="85" width="50" height="20" fill="#6b7280"
+                ></rect>
+                <rect x="25" y="75" width="30" height="15" fill="#9ca3af"
+                ></rect>
+
+                <rect x="70" y="105" width="60" height="35" fill="#4b5563"
+                ></rect>
+                <rect x="85" y="92" width="35" height="18" fill="#6b7280"
+                ></rect>
+
+                {/* Left city buildings - much taller */}
+                <rect x="140" y="50" width="18" height="90" fill="#374151"
+                ></rect>
+                <rect
+                    x="143"
+                    y="55"
+                    width="4"
+                    height="5"
+                    fill="#fbbf24"
+                    opacity="0.5"></rect>
+                <rect
+                    x="143"
+                    y="68"
+                    width="4"
+                    height="5"
+                    fill="#fbbf24"
+                    opacity="0.4"></rect>
+                <rect
+                    x="143"
+                    y="82"
+                    width="4"
+                    height="5"
+                    fill="#fbbf24"
+                    opacity="0.3"></rect>
+                <rect
+                    x="150"
+                    y="62"
+                    width="4"
+                    height="5"
+                    fill="#fbbf24"
+                    opacity="0.4"></rect>
+                <rect
+                    x="150"
+                    y="95"
+                    width="4"
+                    height="5"
+                    fill="#fbbf24"
+                    opacity="0.5"></rect>
+
+                <rect x="162" y="30" width="24" height="110" fill="#4b5563"
+                ></rect>
+                <rect
+                    x="166"
+                    y="38"
+                    width="5"
+                    height="6"
+                    fill="#fbbf24"
+                    opacity="0.5"></rect>
+                <rect
+                    x="175"
+                    y="50"
+                    width="5"
+                    height="6"
+                    fill="#fbbf24"
+                    opacity="0.4"></rect>
+                <rect
+                    x="166"
+                    y="65"
+                    width="5"
+                    height="6"
+                    fill="#fbbf24"
+                    opacity="0.3"></rect>
+                <rect
+                    x="175"
+                    y="78"
+                    width="5"
+                    height="6"
+                    fill="#fbbf24"
+                    opacity="0.4"></rect>
+                <rect
+                    x="166"
+                    y="92"
+                    width="5"
+                    height="6"
+                    fill="#fbbf24"
+                    opacity="0.5"></rect>
+                <rect
+                    x="175"
+                    y="105"
+                    width="5"
+                    height="6"
+                    fill="#fbbf24"
+                    opacity="0.3"></rect>
+
+                <rect x="190" y="60" width="15" height="80" fill="#374151"
+                ></rect>
+                <rect
+                    x="193"
+                    y="68"
+                    width="4"
+                    height="5"
+                    fill="#fbbf24"
+                    opacity="0.4"></rect>
+                <rect
+                    x="193"
+                    y="85"
+                    width="4"
+                    height="5"
+                    fill="#fbbf24"
+                    opacity="0.3"></rect>
+                <rect
+                    x="193"
+                    y="100"
+                    width="4"
+                    height="5"
+                    fill="#fbbf24"
+                    opacity="0.5"></rect>
+
+                {/* Center-left buildings */}
+                <rect x="210" y="75" width="12" height="65" fill="#4b5563"
+                ></rect>
+                <rect x="226" y="55" width="16" height="85" fill="#374151"
+                ></rect>
+                <rect
+                    x="230"
+                    y="62"
+                    width="4"
+                    height="5"
+                    fill="#fbbf24"
+                    opacity="0.4"></rect>
+                <rect
+                    x="230"
+                    y="80"
+                    width="4"
+                    height="5"
+                    fill="#fbbf24"
+                    opacity="0.3"></rect>
+                <rect
+                    x="236"
+                    y="95"
+                    width="4"
+                    height="5"
+                    fill="#fbbf24"
+                    opacity="0.5"></rect>
+
+                <rect x="246" y="70" width="14" height="70" fill="#4b5563"
+                ></rect>
+
+                {/* Right side city - much taller */}
+                <rect x="545" y="65" width="14" height="75" fill="#4b5563"
+                ></rect>
+
+                <rect x="562" y="40" width="20" height="100" fill="#374151"
+                ></rect>
+                <rect
+                    x="566"
+                    y="48"
+                    width="5"
+                    height="6"
+                    fill="#fbbf24"
+                    opacity="0.5"></rect>
+                <rect
+                    x="573"
+                    y="60"
+                    width="5"
+                    height="6"
+                    fill="#fbbf24"
+                    opacity="0.4"></rect>
+                <rect
+                    x="566"
+                    y="75"
+                    width="5"
+                    height="6"
+                    fill="#fbbf24"
+                    opacity="0.3"></rect>
+                <rect
+                    x="573"
+                    y="88"
+                    width="5"
+                    height="6"
+                    fill="#fbbf24"
+                    opacity="0.5"></rect>
+                <rect
+                    x="566"
+                    y="102"
+                    width="5"
+                    height="6"
+                    fill="#fbbf24"
+                    opacity="0.4"></rect>
+
+                <rect x="586" y="25" width="26" height="115" fill="#4b5563"
+                ></rect>
+                <rect
+                    x="591"
+                    y="32"
+                    width="5"
+                    height="6"
+                    fill="#fbbf24"
+                    opacity="0.5"></rect>
+                <rect
+                    x="600"
+                    y="45"
+                    width="5"
+                    height="6"
+                    fill="#fbbf24"
+                    opacity="0.4"></rect>
+                <rect
+                    x="591"
+                    y="58"
+                    width="5"
+                    height="6"
+                    fill="#fbbf24"
+                    opacity="0.3"></rect>
+                <rect
+                    x="600"
+                    y="72"
+                    width="5"
+                    height="6"
+                    fill="#fbbf24"
+                    opacity="0.5"></rect>
+                <rect
+                    x="591"
+                    y="88"
+                    width="5"
+                    height="6"
+                    fill="#fbbf24"
+                    opacity="0.4"></rect>
+                <rect
+                    x="600"
+                    y="105"
+                    width="5"
+                    height="6"
+                    fill="#fbbf24"
+                    opacity="0.3"></rect>
+
+                <rect x="616" y="55" width="16" height="85" fill="#374151"
+                ></rect>
+                <rect
+                    x="620"
+                    y="62"
+                    width="4"
+                    height="5"
+                    fill="#fbbf24"
+                    opacity="0.4"></rect>
+                <rect
+                    x="620"
+                    y="80"
+                    width="4"
+                    height="5"
+                    fill="#fbbf24"
+                    opacity="0.3"></rect>
+                <rect
+                    x="626"
+                    y="95"
+                    width="4"
+                    height="5"
+                    fill="#fbbf24"
+                    opacity="0.5"></rect>
+
+                <rect x="636" y="70" width="12" height="70" fill="#4b5563"
+                ></rect>
+
+                {/* Right hills */}
+                <rect x="655" y="100" width="70" height="40" fill="#4b5563"
+                ></rect>
+                <rect x="670" y="88" width="45" height="18" fill="#6b7280"
+                ></rect>
+                <rect x="682" y="78" width="25" height="14" fill="#9ca3af"
+                ></rect>
+
+                <rect x="715" y="95" width="85" height="45" fill="#4b5563"
+                ></rect>
+                <rect x="735" y="82" width="55" height="20" fill="#6b7280"
+                ></rect>
+                <rect x="750" y="70" width="30" height="16" fill="#9ca3af"
+                ></rect>
+            </svg>
+        </div>
+
+        {/* Trees - varied sizes and positions (z-10 to be above flowers) */}
+        {/* Large tree - far left */}
+        <div class="absolute bottom-[18%] left-[3%] z-10 -mb-30">
+            <svg
+                width="180"
+                height="280"
+                viewBox="0 0 90 140"
+                class="drop-shadow-xl"
+            >
+                <rect x="40" y="95" width="12" height="45" fill="#78350f"
+                ></rect>
+                <rect
+                    x="42"
+                    y="100"
+                    width="3"
+                    height="35"
+                    fill="#92400e"
+                    opacity="0.5"></rect>
+                <rect x="15" y="45" width="60" height="55" fill="#166534"
+                ></rect>
+                <rect x="25" y="25" width="40" height="35" fill="#15803d"
+                ></rect>
+                <rect x="35" y="8" width="20" height="22" fill="#16a34a"></rect>
+                <rect
+                    x="20"
+                    y="50"
+                    width="8"
+                    height="8"
+                    fill="#22c55e"
+                    opacity="0.4"></rect>
+                <rect
+                    x="50"
+                    y="30"
+                    width="6"
+                    height="6"
+                    fill="#22c55e"
+                    opacity="0.3"></rect>
+            </svg>
+        </div>
+
+        {/* Medium tree - left side */}
+        <div class="absolute bottom-[18%] left-[12%] z-10 -mb-20">
+            <svg
+                width="140"
+                height="220"
+                viewBox="0 0 70 110"
+                class="drop-shadow-lg"
+            >
+                <rect x="30" y="70" width="10" height="40" fill="#78350f"
+                ></rect>
+                <rect
+                    x="32"
+                    y="75"
+                    width="2"
+                    height="30"
+                    fill="#92400e"
+                    opacity="0.5"></rect>
+                <rect x="12" y="35" width="46" height="40" fill="#166534"
+                ></rect>
+                <rect x="20" y="18" width="30" height="25" fill="#15803d"
+                ></rect>
+                <rect x="28" y="5" width="14" height="18" fill="#16a34a"></rect>
+                <rect
+                    x="15"
+                    y="40"
+                    width="6"
+                    height="6"
+                    fill="#22c55e"
+                    opacity="0.35"></rect>
+            </svg>
+        </div>
+
+        {/* Small tree - left of center */}
+        <div class="absolute bottom-[18%] left-[22%] z-10 -mb-12.5">
+            <svg
+                width="90"
+                height="140"
+                viewBox="0 0 45 70"
+                class="drop-shadow-md"
+            >
+                <rect x="19" y="45" width="7" height="25" fill="#78350f"></rect>
+                <rect x="8" y="22" width="29" height="26" fill="#166534"></rect>
+                <rect x="13" y="10" width="19" height="16" fill="#15803d"
+                ></rect>
+                <rect x="17" y="3" width="11" height="10" fill="#16a34a"></rect>
+            </svg>
+        </div>
+
+        {/* Large tree - right of center */}
+        <div class="absolute bottom-[18%] right-[20%] z-10 -mb-25">
+            <svg
+                width="160"
+                height="250"
+                viewBox="0 0 80 125"
+                class="drop-shadow-xl"
+            >
+                <rect x="35" y="85" width="10" height="40" fill="#78350f"
+                ></rect>
+                <rect
+                    x="37"
+                    y="90"
+                    width="2"
+                    height="30"
+                    fill="#92400e"
+                    opacity="0.5"></rect>
+                <rect x="15" y="42" width="50" height="48" fill="#166534"
+                ></rect>
+                <rect x="23" y="22" width="34" height="30" fill="#15803d"
+                ></rect>
+                <rect x="30" y="6" width="20" height="20" fill="#16a34a"></rect>
+                <rect
+                    x="18"
+                    y="48"
+                    width="7"
+                    height="7"
+                    fill="#22c55e"
+                    opacity="0.4"></rect>
+                <rect
+                    x="45"
+                    y="28"
+                    width="5"
+                    height="5"
+                    fill="#22c55e"
+                    opacity="0.3"></rect>
+            </svg>
+        </div>
+
+        {/* Medium tree - right side */}
+        <div class="absolute bottom-[18%] right-[8%] z-10 -mb-22.5">
+            <svg
+                width="150"
+                height="230"
+                viewBox="0 0 75 115"
+                class="drop-shadow-lg"
+            >
+                <rect x="33" y="75" width="9" height="40" fill="#78350f"></rect>
+                <rect
+                    x="35"
+                    y="80"
+                    width="2"
+                    height="28"
+                    fill="#92400e"
+                    opacity="0.5"></rect>
+                <rect x="14" y="38" width="47" height="42" fill="#166534"
+                ></rect>
+                <rect x="22" y="20" width="31" height="26" fill="#15803d"
+                ></rect>
+                <rect x="29" y="5" width="17" height="18" fill="#16a34a"></rect>
+                <rect
+                    x="17"
+                    y="42"
+                    width="6"
+                    height="6"
+                    fill="#22c55e"
+                    opacity="0.35"></rect>
+                <rect
+                    x="42"
+                    y="25"
+                    width="5"
+                    height="5"
+                    fill="#22c55e"
+                    opacity="0.3"></rect>
+            </svg>
+        </div>
+
+        {/* Tiny tree - far right */}
+        <div class="absolute bottom-[18%] right-[2%] z-10 -mb-10">
+            <svg
+                width="70"
+                height="110"
+                viewBox="0 0 35 55"
+                class="drop-shadow-sm"
+            >
+                <rect x="14" y="35" width="6" height="20" fill="#78350f"></rect>
+                <rect x="6" y="17" width="23" height="20" fill="#166534"></rect>
+                <rect x="10" y="7" width="15" height="13" fill="#15803d"></rect>
+                <rect x="13" y="2" width="9" height="8" fill="#16a34a"></rect>
+            </svg>
+        </div>
+
+        {/* === WIDE SCREEN TREES (xl: 1280px+) === */}
+        {/* Tree - left-center area */}
+        <div
+            class="hidden xl:block absolute bottom-[18%] left-[30%] z-10 -mb-17.5"
+        >
+            <svg
+                width="120"
+                height="190"
+                viewBox="0 0 60 95"
+                class="drop-shadow-lg"
+            >
+                <rect x="26" y="62" width="8" height="33" fill="#78350f"></rect>
+                <rect
+                    x="28"
+                    y="67"
+                    width="2"
+                    height="24"
+                    fill="#92400e"
+                    opacity="0.5"></rect>
+                <rect x="10" y="30" width="40" height="36" fill="#166534"
+                ></rect>
+                <rect x="17" y="15" width="26" height="22" fill="#15803d"
+                ></rect>
+                <rect x="23" y="4" width="14" height="14" fill="#16a34a"></rect>
+                <rect
+                    x="14"
+                    y="35"
+                    width="5"
+                    height="5"
+                    fill="#22c55e"
+                    opacity="0.35"></rect>
+            </svg>
+        </div>
+
+        {/* Tree - right-center area */}
+        <div
+            class="hidden xl:block absolute bottom-[18%] right-[30%] z-10 -mb-15"
+        >
+            <svg
+                width="100"
+                height="160"
+                viewBox="0 0 50 80"
+                class="drop-shadow-lg"
+            >
+                <rect x="22" y="52" width="7" height="28" fill="#78350f"></rect>
+                <rect
+                    x="24"
+                    y="56"
+                    width="2"
+                    height="20"
+                    fill="#92400e"
+                    opacity="0.5"></rect>
+                <rect x="8" y="25" width="34" height="30" fill="#166534"></rect>
+                <rect x="14" y="12" width="22" height="18" fill="#15803d"
+                ></rect>
+                <rect x="19" y="3" width="12" height="12" fill="#16a34a"></rect>
+            </svg>
+        </div>
+
+        {/* === EXTRA WIDE SCREEN TREES (2xl: 1536px+) === */}
+        {/* Large tree - inner left */}
+        <div
+            class="hidden 2xl:block absolute bottom-[18%] left-[35%] z-10 -mb-22.5"
+        >
+            <svg
+                width="140"
+                height="220"
+                viewBox="0 0 70 110"
+                class="drop-shadow-xl"
+            >
+                <rect x="30" y="72" width="10" height="38" fill="#78350f"
+                ></rect>
+                <rect
+                    x="32"
+                    y="77"
+                    width="2"
+                    height="28"
+                    fill="#92400e"
+                    opacity="0.5"></rect>
+                <rect x="12" y="35" width="46" height="42" fill="#166534"
+                ></rect>
+                <rect x="20" y="17" width="30" height="25" fill="#15803d"
+                ></rect>
+                <rect x="27" y="4" width="16" height="16" fill="#16a34a"></rect>
+                <rect
+                    x="16"
+                    y="40"
+                    width="6"
+                    height="6"
+                    fill="#22c55e"
+                    opacity="0.4"></rect>
+            </svg>
+        </div>
+
+        {/* Medium tree - inner right */}
+        <div
+            class="hidden 2xl:block absolute bottom-[18%] right-[35%] z-10 -mb-18.75"
+        >
+            <svg
+                width="130"
+                height="200"
+                viewBox="0 0 65 100"
+                class="drop-shadow-xl"
+            >
+                <rect x="28" y="65" width="9" height="35" fill="#78350f"></rect>
+                <rect
+                    x="30"
+                    y="70"
+                    width="2"
+                    height="25"
+                    fill="#92400e"
+                    opacity="0.5"></rect>
+                <rect x="11" y="32" width="43" height="38" fill="#166534"
+                ></rect>
+                <rect x="18" y="15" width="29" height="23" fill="#15803d"
+                ></rect>
+                <rect x="25" y="3" width="15" height="15" fill="#16a34a"></rect>
+                <rect
+                    x="38"
+                    y="20"
+                    width="5"
+                    height="5"
+                    fill="#22c55e"
+                    opacity="0.3"></rect>
+            </svg>
+        </div>
+
+        {/* Small tree - far inner left */}
+        <div
+            class="hidden 2xl:block absolute bottom-[18%] left-[40%] z-10 -mb-11.25"
+        >
+            <svg
+                width="80"
+                height="125"
+                viewBox="0 0 40 62"
+                class="drop-shadow-md"
+            >
+                <rect x="17" y="40" width="6" height="22" fill="#78350f"></rect>
+                <rect x="7" y="20" width="26" height="23" fill="#166534"></rect>
+                <rect x="12" y="9" width="16" height="14" fill="#15803d"></rect>
+                <rect x="15" y="2" width="10" height="9" fill="#16a34a"></rect>
+            </svg>
+        </div>
+
+        {/* Small tree - far inner right */}
+        <div
+            class="hidden 2xl:block absolute bottom-[18%] right-[40%] z-10 -mb-12.5"
+        >
+            <svg
+                width="85"
+                height="135"
+                viewBox="0 0 42 67"
+                class="drop-shadow-md"
+            >
+                <rect x="18" y="44" width="6" height="23" fill="#78350f"></rect>
+                <rect x="7" y="22" width="28" height="25" fill="#166534"></rect>
+                <rect x="12" y="10" width="18" height="15" fill="#15803d"
+                ></rect>
+                <rect x="16" y="2" width="10" height="10" fill="#16a34a"></rect>
+            </svg>
+        </div>
+
+        {/* Bushes (z-5, behind trees) */}
+        <div class="absolute bottom-[17%] left-[18%] z-5">
+            <svg width="60" height="40" viewBox="0 0 30 20">
+                <rect x="2" y="8" width="26" height="12" fill="#166534"></rect>
+                <rect x="5" y="4" width="8" height="6" fill="#15803d"></rect>
+                <rect x="15" y="5" width="10" height="5" fill="#16a34a"></rect>
+                <rect
+                    x="8"
+                    y="10"
+                    width="4"
+                    height="4"
+                    fill="#22c55e"
+                    opacity="0.3"></rect>
+            </svg>
+        </div>
+        <div class="absolute bottom-[17%] right-[25%] z-5">
+            <svg width="50" height="35" viewBox="0 0 25 18">
+                <rect x="2" y="7" width="21" height="11" fill="#166534"></rect>
+                <rect x="4" y="3" width="7" height="5" fill="#15803d"></rect>
+                <rect x="13" y="4" width="8" height="4" fill="#16a34a"></rect>
+            </svg>
+        </div>
+
+        {/* Wide screen bushes (xl+) */}
+        <div class="hidden xl:block absolute bottom-[17%] left-[32%] z-5">
+            <svg width="55" height="38" viewBox="0 0 28 19">
+                <rect x="2" y="8" width="24" height="11" fill="#166534"></rect>
+                <rect x="5" y="4" width="7" height="5" fill="#15803d"></rect>
+                <rect x="14" y="5" width="9" height="4" fill="#16a34a"></rect>
+            </svg>
+        </div>
+        <div class="hidden xl:block absolute bottom-[17%] right-[32%] z-5">
+            <svg width="48" height="32" viewBox="0 0 24 16">
+                <rect x="2" y="6" width="20" height="10" fill="#166534"></rect>
+                <rect x="4" y="3" width="6" height="4" fill="#15803d"></rect>
+                <rect x="12" y="4" width="7" height="3" fill="#16a34a"></rect>
+            </svg>
+        </div>
+
+        {/* Extra wide screen bushes (2xl+) */}
+        <div class="hidden 2xl:block absolute bottom-[17%] left-[38%] z-5">
+            <svg width="45" height="30" viewBox="0 0 22 15">
+                <rect x="2" y="6" width="18" height="9" fill="#166534"></rect>
+                <rect x="4" y="3" width="5" height="4" fill="#15803d"></rect>
+                <rect x="11" y="4" width="6" height="3" fill="#16a34a"></rect>
+            </svg>
+        </div>
+        <div class="hidden 2xl:block absolute bottom-[17%] right-[38%] z-5">
+            <svg width="50" height="34" viewBox="0 0 25 17">
+                <rect x="2" y="7" width="21" height="10" fill="#166534"></rect>
+                <rect x="5" y="3" width="6" height="5" fill="#15803d"></rect>
+                <rect x="13" y="4" width="8" height="4" fill="#16a34a"></rect>
+            </svg>
+        </div>
+
+        <div class="absolute bottom-[17%] left-[28%] z-5">
+            <svg width="40" height="28" viewBox="0 0 20 14">
+                <rect x="1" y="5" width="18" height="9" fill="#15803d"></rect>
+                <rect x="4" y="2" width="6" height="4" fill="#16a34a"></rect>
+                <rect x="11" y="3" width="5" height="3" fill="#22c55e"></rect>
+            </svg>
+        </div>
+
+        {/* Pixel-art bench - left side (closer/foreground) */}
+        <div class="absolute bottom-[14%] left-[24%] z-20 -mb-7.5">
+            <svg width="100" height="70" viewBox="0 0 25 18">
+                {/* Bench legs */}
+                <rect x="3" y="10" width="3" height="8" fill="#78350f"></rect>
+                <rect x="19" y="10" width="3" height="8" fill="#78350f"></rect>
+                {/* Bench seat */}
+                <rect x="1" y="7" width="23" height="4" fill="#92400e"></rect>
+                <rect
+                    x="2"
+                    y="8"
+                    width="21"
+                    height="2"
+                    fill="#a16207"
+                    opacity="0.5"></rect>
+                {/* Bench back */}
+                <rect x="2" y="2" width="21" height="3" fill="#78350f"></rect>
+                <rect
+                    x="3"
+                    y="3"
+                    width="19"
+                    height="1"
+                    fill="#92400e"
+                    opacity="0.5"></rect>
+                {/* Back supports */}
+                <rect x="4" y="5" width="2" height="3" fill="#78350f"></rect>
+                <rect x="19" y="5" width="2" height="3" fill="#78350f"></rect>
+            </svg>
+        </div>
+
+        {/* Trash can - near bench */}
+        <div class="absolute bottom-[14.5%] left-[22%] z-20 -mb-6.25">
+            <svg width="36" height="48" viewBox="0 0 12 16">
+                <rect x="2" y="2" width="8" height="14" fill="#166534"></rect>
+                <rect x="1" y="1" width="10" height="2" fill="#15803d"></rect>
+                <rect
+                    x="4"
+                    y="4"
+                    width="1"
+                    height="8"
+                    fill="#22c55e"
+                    opacity="0.3"></rect>
+                <rect
+                    x="7"
+                    y="4"
+                    width="1"
+                    height="8"
+                    fill="#22c55e"
+                    opacity="0.3"></rect>
+            </svg>
+        </div>
+
+        {/* Flowers - varied depths, consistent pixel-art style */}
+        {/* Far flowers (smaller, more faded - z-0) */}
+        <div class="absolute bottom-[17.8%] left-[5%] z-0 opacity-70">
+            <svg width="12" height="16" viewBox="0 0 6 8">
+                <rect x="2" y="4" width="2" height="4" fill="#15803d"></rect>
+                <rect x="1" y="1" width="4" height="3" fill="#f472b6"></rect>
+                <rect x="2" y="2" width="2" height="1" fill="#fbbf24"></rect>
+            </svg>
+        </div>
+        <div class="absolute bottom-[17.8%] left-[7%] z-0 opacity-70">
+            <svg width="10" height="14" viewBox="0 0 5 7">
+                <rect x="2" y="4" width="1" height="3" fill="#16a34a"></rect>
+                <rect x="1" y="1" width="3" height="3" fill="#c084fc"></rect>
+                <rect x="2" y="2" width="1" height="1" fill="#fbbf24"></rect>
+            </svg>
+        </div>
+        <div class="absolute bottom-[17.8%] right-[6%] z-0 opacity-70">
+            <svg width="12" height="16" viewBox="0 0 6 8">
+                <rect x="2" y="4" width="2" height="4" fill="#15803d"></rect>
+                <rect x="1" y="1" width="4" height="3" fill="#fb7185"></rect>
+                <rect x="2" y="2" width="2" height="1" fill="#fcd34d"></rect>
+            </svg>
+        </div>
+        <div class="absolute bottom-[17.8%] right-[8%] z-0 opacity-70">
+            <svg width="10" height="14" viewBox="0 0 5 7">
+                <rect x="2" y="4" width="1" height="3" fill="#16a34a"></rect>
+                <rect x="1" y="1" width="3" height="3" fill="#60a5fa"></rect>
+                <rect x="2" y="2" width="1" height="1" fill="#fbbf24"></rect>
+            </svg>
+        </div>
+
+        {/* Mid flowers (medium size - z-5) */}
+        <div class="absolute bottom-[17.5%] left-[10%] z-5">
+            <svg width="16" height="20" viewBox="0 0 8 10">
+                <rect x="3" y="5" width="2" height="5" fill="#15803d"></rect>
+                <rect x="2" y="1" width="4" height="4" fill="#f472b6"></rect>
+                <rect x="3" y="2" width="2" height="2" fill="#fbbf24"></rect>
+            </svg>
+        </div>
+        <div class="absolute bottom-[17.5%] left-[14%] z-5">
+            <svg width="14" height="18" viewBox="0 0 7 9">
+                <rect x="3" y="5" width="1" height="4" fill="#16a34a"></rect>
+                <rect x="2" y="1" width="3" height="4" fill="#c084fc"></rect>
+                <rect x="2" y="2" width="2" height="2" fill="#fcd34d"></rect>
+            </svg>
+        </div>
+        <div class="absolute bottom-[17.5%] right-[14%] z-5">
+            <svg width="16" height="20" viewBox="0 0 8 10">
+                <rect x="3" y="5" width="2" height="5" fill="#15803d"></rect>
+                <rect x="2" y="1" width="4" height="4" fill="#fb7185"></rect>
+                <rect x="3" y="2" width="2" height="2" fill="#fbbf24"></rect>
+            </svg>
+        </div>
+        <div class="absolute bottom-[17.5%] right-[10%] z-5">
+            <svg width="14" height="18" viewBox="0 0 7 9">
+                <rect x="3" y="5" width="1" height="4" fill="#16a34a"></rect>
+                <rect x="2" y="1" width="3" height="4" fill="#60a5fa"></rect>
+                <rect x="2" y="2" width="2" height="2" fill="#fcd34d"></rect>
+            </svg>
+        </div>
+
+        {/* Near flowers (larger, more prominent - z-10) */}
+        <div class="absolute bottom-[17%] left-[17%] z-10">
+            <svg width="20" height="24" viewBox="0 0 10 12">
+                <rect x="4" y="6" width="2" height="6" fill="#15803d"></rect>
+                <rect x="3" y="2" width="4" height="4" fill="#f472b6"></rect>
+                <rect x="4" y="3" width="2" height="2" fill="#fbbf24"></rect>
+            </svg>
+        </div>
+        <div class="absolute bottom-[17%] left-[19%] z-10">
+            <svg width="18" height="22" viewBox="0 0 9 11">
+                <rect x="4" y="6" width="1" height="5" fill="#16a34a"></rect>
+                <rect x="3" y="2" width="3" height="4" fill="#c084fc"></rect>
+                <rect x="3" y="3" width="2" height="2" fill="#fcd34d"></rect>
+            </svg>
+        </div>
+        <div class="absolute bottom-[17%] right-[17%] z-10">
+            <svg width="20" height="24" viewBox="0 0 10 12">
+                <rect x="4" y="6" width="2" height="6" fill="#15803d"></rect>
+                <rect x="3" y="2" width="4" height="4" fill="#fb7185"></rect>
+                <rect x="4" y="3" width="2" height="2" fill="#fbbf24"></rect>
+            </svg>
+        </div>
+        <div class="absolute bottom-[17%] right-[19%] z-10">
+            <svg width="18" height="22" viewBox="0 0 9 11">
+                <rect x="4" y="6" width="1" height="5" fill="#16a34a"></rect>
+                <rect x="3" y="2" width="3" height="4" fill="#60a5fa"></rect>
+                <rect x="3" y="3" width="2" height="2" fill="#fcd34d"></rect>
+            </svg>
+        </div>
+
+        {/* Very close/foreground flowers (largest, most prominent - z-30) */}
+        <div class="absolute bottom-[12%] left-[2%] z-30">
+            <svg width="40" height="50" viewBox="0 0 10 12">
+                <rect x="4" y="6" width="2" height="6" fill="#15803d"></rect>
+                <rect x="3" y="2" width="4" height="4" fill="#f472b6"></rect>
+                <rect x="4" y="3" width="2" height="2" fill="#fbbf24"></rect>
+            </svg>
+        </div>
+        <div class="absolute bottom-[11%] left-[5%] z-30">
+            <svg width="36" height="44" viewBox="0 0 9 11">
+                <rect x="4" y="6" width="1" height="5" fill="#16a34a"></rect>
+                <rect x="3" y="2" width="3" height="4" fill="#c084fc"></rect>
+                <rect x="3" y="3" width="2" height="2" fill="#fcd34d"></rect>
+            </svg>
+        </div>
+        <div class="absolute bottom-[10%] left-[8%] z-30">
+            <svg width="44" height="54" viewBox="0 0 10 12">
+                <rect x="4" y="6" width="2" height="6" fill="#15803d"></rect>
+                <rect x="3" y="2" width="4" height="4" fill="#fb7185"></rect>
+                <rect x="4" y="3" width="2" height="2" fill="#fbbf24"></rect>
+            </svg>
+        </div>
+        <div class="absolute bottom-[12%] right-[3%] z-30">
+            <svg width="38" height="48" viewBox="0 0 10 12">
+                <rect x="4" y="6" width="2" height="6" fill="#15803d"></rect>
+                <rect x="3" y="2" width="4" height="4" fill="#60a5fa"></rect>
+                <rect x="4" y="3" width="2" height="2" fill="#fbbf24"></rect>
+            </svg>
+        </div>
+        <div class="absolute bottom-[10%] right-[6%] z-30">
+            <svg width="42" height="52" viewBox="0 0 9 11">
+                <rect x="4" y="6" width="1" height="5" fill="#16a34a"></rect>
+                <rect x="3" y="2" width="3" height="4" fill="#ec4899"></rect>
+                <rect x="3" y="3" width="2" height="2" fill="#fcd34d"></rect>
+            </svg>
+        </div>
+        <div class="absolute bottom-[11%] right-[9%] z-30">
+            <svg width="34" height="42" viewBox="0 0 10 12">
+                <rect x="4" y="6" width="2" height="6" fill="#15803d"></rect>
+                <rect x="3" y="2" width="4" height="4" fill="#a78bfa"></rect>
+                <rect x="4" y="3" width="2" height="2" fill="#fbbf24"></rect>
+            </svg>
+        </div>
+
+        {/* Wide screen foreground flowers (xl+) */}
+        <div class="hidden xl:block absolute bottom-[12%] left-[25%] z-30">
+            <svg width="36" height="45" viewBox="0 0 9 11">
+                <rect x="4" y="6" width="1" height="5" fill="#16a34a"></rect>
+                <rect x="3" y="2" width="3" height="4" fill="#f472b6"></rect>
+                <rect x="3" y="3" width="2" height="2" fill="#fbbf24"></rect>
+            </svg>
+        </div>
+        <div class="hidden xl:block absolute bottom-[11%] left-[28%] z-30">
+            <svg width="38" height="48" viewBox="0 0 10 12">
+                <rect x="4" y="6" width="2" height="6" fill="#15803d"></rect>
+                <rect x="3" y="2" width="4" height="4" fill="#c084fc"></rect>
+                <rect x="4" y="3" width="2" height="2" fill="#fbbf24"></rect>
+            </svg>
+        </div>
+        <div class="hidden xl:block absolute bottom-[12%] right-[25%] z-30">
+            <svg width="35" height="44" viewBox="0 0 9 11">
+                <rect x="4" y="6" width="1" height="5" fill="#16a34a"></rect>
+                <rect x="3" y="2" width="3" height="4" fill="#fb7185"></rect>
+                <rect x="3" y="3" width="2" height="2" fill="#fcd34d"></rect>
+            </svg>
+        </div>
+        <div class="hidden xl:block absolute bottom-[10%] right-[28%] z-30">
+            <svg width="40" height="50" viewBox="0 0 10 12">
+                <rect x="4" y="6" width="2" height="6" fill="#15803d"></rect>
+                <rect x="3" y="2" width="4" height="4" fill="#a78bfa"></rect>
+                <rect x="4" y="3" width="2" height="2" fill="#fbbf24"></rect>
+            </svg>
+        </div>
+
+        {/* Extra wide screen foreground flowers (2xl+) */}
+        <div class="hidden 2xl:block absolute bottom-[11%] left-[33%] z-30">
+            <svg width="34" height="42" viewBox="0 0 9 11">
+                <rect x="4" y="6" width="1" height="5" fill="#16a34a"></rect>
+                <rect x="3" y="2" width="3" height="4" fill="#ec4899"></rect>
+                <rect x="3" y="3" width="2" height="2" fill="#fcd34d"></rect>
+            </svg>
+        </div>
+        <div class="hidden 2xl:block absolute bottom-[12%] left-[36%] z-30">
+            <svg width="36" height="45" viewBox="0 0 10 12">
+                <rect x="4" y="6" width="2" height="6" fill="#15803d"></rect>
+                <rect x="3" y="2" width="4" height="4" fill="#60a5fa"></rect>
+                <rect x="4" y="3" width="2" height="2" fill="#fbbf24"></rect>
+            </svg>
+        </div>
+        <div class="hidden 2xl:block absolute bottom-[10%] right-[33%] z-30">
+            <svg width="38" height="47" viewBox="0 0 9 11">
+                <rect x="4" y="6" width="1" height="5" fill="#16a34a"></rect>
+                <rect x="3" y="2" width="3" height="4" fill="#f472b6"></rect>
+                <rect x="3" y="3" width="2" height="2" fill="#fcd34d"></rect>
+            </svg>
+        </div>
+        <div class="hidden 2xl:block absolute bottom-[11%] right-[36%] z-30">
+            <svg width="35" height="44" viewBox="0 0 10 12">
+                <rect x="4" y="6" width="2" height="6" fill="#15803d"></rect>
+                <rect x="3" y="2" width="4" height="4" fill="#c084fc"></rect>
+                <rect x="4" y="3" width="2" height="2" fill="#fbbf24"></rect>
+            </svg>
+        </div>
+
+        {/* Foreground grass patches (very large, closest - z-30) */}
+        <div class="absolute bottom-[8%] left-[0%] z-30">
+            <svg width="120" height="60" viewBox="0 0 25 12">
+                <rect x="2" y="6" width="3" height="6" fill="#22c55e"></rect>
+                <rect x="6" y="4" width="3" height="8" fill="#16a34a"></rect>
+                <rect x="10" y="5" width="3" height="7" fill="#22c55e"></rect>
+                <rect x="14" y="6" width="3" height="6" fill="#15803d"></rect>
+                <rect x="18" y="4" width="3" height="8" fill="#22c55e"></rect>
+                <rect x="22" y="5" width="3" height="7" fill="#16a34a"></rect>
+            </svg>
+        </div>
+        <div class="absolute bottom-[7%] right-[0%] z-30">
+            <svg width="130" height="65" viewBox="0 0 25 12">
+                <rect x="1" y="5" width="3" height="7" fill="#16a34a"></rect>
+                <rect x="5" y="3" width="3" height="9" fill="#22c55e"></rect>
+                <rect x="9" y="5" width="3" height="7" fill="#15803d"></rect>
+                <rect x="13" y="4" width="3" height="8" fill="#22c55e"></rect>
+                <rect x="17" y="5" width="3" height="7" fill="#16a34a"></rect>
+                <rect x="21" y="3" width="3" height="9" fill="#22c55e"></rect>
+            </svg>
+        </div>
+
+        {/* Wide screen grass patches (xl+) */}
+        <div class="hidden xl:block absolute bottom-[7%] left-[22%] z-30">
+            <svg width="100" height="50" viewBox="0 0 22 11">
+                <rect x="2" y="5" width="2" height="6" fill="#22c55e"></rect>
+                <rect x="5" y="3" width="2" height="8" fill="#16a34a"></rect>
+                <rect x="9" y="4" width="2" height="7" fill="#22c55e"></rect>
+                <rect x="13" y="5" width="2" height="6" fill="#15803d"></rect>
+                <rect x="17" y="3" width="2" height="8" fill="#22c55e"></rect>
+            </svg>
+        </div>
+        <div class="hidden xl:block absolute bottom-[8%] right-[22%] z-30">
+            <svg width="110" height="55" viewBox="0 0 24 12">
+                <rect x="1" y="5" width="2" height="7" fill="#16a34a"></rect>
+                <rect x="5" y="3" width="2" height="9" fill="#22c55e"></rect>
+                <rect x="9" y="4" width="2" height="8" fill="#15803d"></rect>
+                <rect x="14" y="5" width="2" height="7" fill="#22c55e"></rect>
+                <rect x="19" y="3" width="2" height="9" fill="#16a34a"></rect>
+            </svg>
+        </div>
+
+        {/* Extra wide screen grass patches (2xl+) */}
+        <div class="hidden 2xl:block absolute bottom-[8%] left-[32%] z-30">
+            <svg width="90" height="45" viewBox="0 0 20 10">
+                <rect x="2" y="4" width="2" height="6" fill="#22c55e"></rect>
+                <rect x="6" y="2" width="2" height="8" fill="#16a34a"></rect>
+                <rect x="10" y="3" width="2" height="7" fill="#22c55e"></rect>
+                <rect x="14" y="4" width="2" height="6" fill="#15803d"></rect>
+            </svg>
+        </div>
+        <div class="hidden 2xl:block absolute bottom-[7%] right-[32%] z-30">
+            <svg width="95" height="48" viewBox="0 0 21 11">
+                <rect x="1" y="4" width="2" height="7" fill="#16a34a"></rect>
+                <rect x="5" y="2" width="2" height="9" fill="#22c55e"></rect>
+                <rect x="10" y="3" width="2" height="8" fill="#15803d"></rect>
+                <rect x="15" y="4" width="2" height="7" fill="#22c55e"></rect>
+            </svg>
+        </div>
+
+        {/* Large foreground bushes (z-25) */}
+        <div class="absolute bottom-[10%] left-[10%] z-25">
+            <svg width="90" height="60" viewBox="0 0 22 15">
+                <rect x="2" y="6" width="18" height="9" fill="#166534"></rect>
+                <rect x="4" y="3" width="6" height="5" fill="#15803d"></rect>
+                <rect x="12" y="4" width="7" height="4" fill="#16a34a"></rect>
+                <rect
+                    x="6"
+                    y="8"
+                    width="4"
+                    height="4"
+                    fill="#22c55e"
+                    opacity="0.4"></rect>
+            </svg>
+        </div>
+        <div class="absolute bottom-[9%] right-[12%] z-25">
+            <svg width="100" height="65" viewBox="0 0 28 18">
+                <rect x="2" y="7" width="24" height="11" fill="#166534"></rect>
+                <rect x="5" y="3" width="8" height="6" fill="#15803d"></rect>
+                <rect x="15" y="4" width="9" height="5" fill="#16a34a"></rect>
+                <rect
+                    x="8"
+                    y="9"
+                    width="5"
+                    height="5"
+                    fill="#22c55e"
+                    opacity="0.35"></rect>
+            </svg>
+        </div>
+
+        {/* Wide screen foreground bushes (xl+) */}
+        <div class="hidden xl:block absolute bottom-[10%] left-[28%] z-25">
+            <svg width="80" height="55" viewBox="0 0 20 14">
+                <rect x="2" y="5" width="16" height="9" fill="#166534"></rect>
+                <rect x="4" y="2" width="5" height="4" fill="#15803d"></rect>
+                <rect x="10" y="3" width="6" height="3" fill="#16a34a"></rect>
+            </svg>
+        </div>
+        <div class="hidden xl:block absolute bottom-[9%] right-[28%] z-25">
+            <svg width="85" height="58" viewBox="0 0 21 15">
+                <rect x="2" y="6" width="17" height="9" fill="#166534"></rect>
+                <rect x="4" y="3" width="6" height="4" fill="#15803d"></rect>
+                <rect x="12" y="4" width="5" height="3" fill="#16a34a"></rect>
+            </svg>
+        </div>
+
+        {/* Extra wide screen foreground bushes (2xl+) */}
+        <div class="hidden 2xl:block absolute bottom-[11%] left-[35%] z-25">
+            <svg width="70" height="48" viewBox="0 0 18 12">
+                <rect x="2" y="5" width="14" height="7" fill="#166534"></rect>
+                <rect x="3" y="2" width="5" height="4" fill="#15803d"></rect>
+                <rect x="9" y="3" width="5" height="3" fill="#16a34a"></rect>
+            </svg>
+        </div>
+        <div class="hidden 2xl:block absolute bottom-[10%] right-[35%] z-25">
+            <svg width="75" height="50" viewBox="0 0 19 13">
+                <rect x="2" y="5" width="15" height="8" fill="#166534"></rect>
+                <rect x="4" y="2" width="5" height="4" fill="#15803d"></rect>
+                <rect x="10" y="3" width="6" height="3" fill="#16a34a"></rect>
+            </svg>
+        </div>
+
+        {/* Rock/stone in foreground */}
+        <div class="absolute bottom-[11%] left-[18%] z-25">
+            <svg width="50" height="35" viewBox="0 0 15 10">
+                <rect x="2" y="4" width="11" height="6" fill="#6b7280"></rect>
+                <rect x="3" y="3" width="9" height="2" fill="#9ca3af"></rect>
+                <rect
+                    x="4"
+                    y="5"
+                    width="3"
+                    height="2"
+                    fill="#9ca3af"
+                    opacity="0.5"></rect>
+            </svg>
+        </div>
+        <div class="absolute bottom-[10%] right-[20%] z-25">
+            <svg width="40" height="28" viewBox="0 0 12 8">
+                <rect x="1" y="3" width="10" height="5" fill="#6b7280"></rect>
+                <rect x="2" y="2" width="8" height="2" fill="#9ca3af"></rect>
+                <rect
+                    x="3"
+                    y="4"
+                    width="2"
+                    height="2"
+                    fill="#9ca3af"
+                    opacity="0.5"></rect>
+            </svg>
+        </div>
+
+        {/* Wide screen rocks (xl+) */}
+        <div class="hidden xl:block absolute bottom-[10%] left-[30%] z-25">
+            <svg width="42" height="30" viewBox="0 0 13 9">
+                <rect x="2" y="4" width="9" height="5" fill="#6b7280"></rect>
+                <rect x="3" y="3" width="7" height="2" fill="#9ca3af"></rect>
+                <rect
+                    x="4"
+                    y="5"
+                    width="2"
+                    height="2"
+                    fill="#9ca3af"
+                    opacity="0.5"></rect>
+            </svg>
+        </div>
+        <div class="hidden xl:block absolute bottom-[11%] right-[30%] z-25">
+            <svg width="38" height="26" viewBox="0 0 11 8">
+                <rect x="1" y="3" width="9" height="5" fill="#6b7280"></rect>
+                <rect x="2" y="2" width="7" height="2" fill="#9ca3af"></rect>
+            </svg>
+        </div>
+
+        {/* Extra wide screen rocks (2xl+) */}
+        <div class="hidden 2xl:block absolute bottom-[11%] left-[38%] z-25">
+            <svg width="35" height="24" viewBox="0 0 10 7">
+                <rect x="1" y="3" width="8" height="4" fill="#6b7280"></rect>
+                <rect x="2" y="2" width="6" height="2" fill="#9ca3af"></rect>
+            </svg>
+        </div>
+        <div class="hidden 2xl:block absolute bottom-[10%] right-[38%] z-25">
+            <svg width="32" height="22" viewBox="0 0 9 6">
+                <rect x="1" y="2" width="7" height="4" fill="#6b7280"></rect>
+                <rect x="2" y="1" width="5" height="2" fill="#9ca3af"></rect>
+            </svg>
+        </div>
+
+        {/* Extra bushes for more greenery */}
+        <div class="absolute bottom-[17%] left-[8%] z-5">
+            <svg width="45" height="30" viewBox="0 0 22 15">
+                <rect x="2" y="6" width="18" height="9" fill="#166534"></rect>
+                <rect x="4" y="3" width="6" height="5" fill="#15803d"></rect>
+                <rect x="12" y="4" width="7" height="4" fill="#16a34a"></rect>
+                <rect
+                    x="6"
+                    y="8"
+                    width="3"
+                    height="3"
+                    fill="#22c55e"
+                    opacity="0.4"></rect>
+            </svg>
+        </div>
+        <div class="absolute bottom-[17%] right-[4%] z-5">
+            <svg width="55" height="35" viewBox="0 0 28 18">
+                <rect x="2" y="7" width="24" height="11" fill="#166534"></rect>
+                <rect x="5" y="3" width="8" height="6" fill="#15803d"></rect>
+                <rect x="15" y="4" width="9" height="5" fill="#16a34a"></rect>
+                <rect
+                    x="8"
+                    y="9"
+                    width="4"
+                    height="4"
+                    fill="#22c55e"
+                    opacity="0.35"></rect>
+            </svg>
+        </div>
+        <div class="absolute bottom-[17%] left-[24%] z-5">
+            <svg width="35" height="24" viewBox="0 0 18 12">
+                <rect x="1" y="5" width="16" height="7" fill="#15803d"></rect>
+                <rect x="3" y="2" width="5" height="4" fill="#16a34a"></rect>
+                <rect x="10" y="3" width="6" height="3" fill="#22c55e"></rect>
+            </svg>
+        </div>
+
+        {/* Grass patches - varied sizes for depth */}
+        <div class="absolute bottom-[16.5%] left-[4%] z-0">
+            <svg width="50" height="24" viewBox="0 0 25 12">
+                <rect x="2" y="6" width="2" height="6" fill="#22c55e"></rect>
+                <rect x="5" y="4" width="2" height="8" fill="#16a34a"></rect>
+                <rect x="9" y="5" width="2" height="7" fill="#22c55e"></rect>
+                <rect x="13" y="6" width="2" height="6" fill="#15803d"></rect>
+                <rect x="16" y="4" width="2" height="8" fill="#22c55e"></rect>
+                <rect x="20" y="5" width="2" height="7" fill="#16a34a"></rect>
+            </svg>
+        </div>
+        <div class="absolute bottom-[16.5%] left-[16%] z-0">
+            <svg width="40" height="20" viewBox="0 0 20 10">
+                <rect x="2" y="5" width="2" height="5" fill="#22c55e"></rect>
+                <rect x="5" y="3" width="2" height="7" fill="#16a34a"></rect>
+                <rect x="8" y="4" width="2" height="6" fill="#22c55e"></rect>
+                <rect x="12" y="5" width="2" height="5" fill="#15803d"></rect>
+                <rect x="15" y="3" width="2" height="7" fill="#22c55e"></rect>
+            </svg>
+        </div>
+        <div class="absolute bottom-[16.5%] right-[16%] z-0">
+            <svg width="35" height="18" viewBox="0 0 18 9">
+                <rect x="1" y="4" width="2" height="5" fill="#16a34a"></rect>
+                <rect x="4" y="2" width="2" height="7" fill="#22c55e"></rect>
+                <rect x="8" y="4" width="2" height="5" fill="#15803d"></rect>
+                <rect x="12" y="3" width="2" height="6" fill="#22c55e"></rect>
+                <rect x="15" y="4" width="2" height="5" fill="#16a34a"></rect>
+            </svg>
+        </div>
+        <div class="absolute bottom-[16.5%] right-[3%] z-0">
+            <svg width="45" height="22" viewBox="0 0 22 11">
+                <rect x="2" y="5" width="2" height="6" fill="#22c55e"></rect>
+                <rect x="6" y="3" width="2" height="8" fill="#16a34a"></rect>
+                <rect x="10" y="4" width="2" height="7" fill="#22c55e"></rect>
+                <rect x="14" y="5" width="2" height="6" fill="#15803d"></rect>
+                <rect x="18" y="3" width="2" height="8" fill="#22c55e"></rect>
+            </svg>
+        </div>
+
+        {/* Small shrubs/ground cover */}
+        <div class="absolute bottom-[17.2%] left-[1%] z-5 opacity-90">
+            <svg width="30" height="20" viewBox="0 0 15 10">
+                <rect x="1" y="5" width="13" height="5" fill="#166534"></rect>
+                <rect x="3" y="3" width="4" height="3" fill="#15803d"></rect>
+                <rect x="8" y="4" width="5" height="2" fill="#16a34a"></rect>
+            </svg>
+        </div>
+        <div class="absolute bottom-[17.2%] right-[1%] z-5 opacity-90">
+            <svg width="35" height="22" viewBox="0 0 18 11">
+                <rect x="1" y="5" width="16" height="6" fill="#166534"></rect>
+                <rect x="3" y="2" width="5" height="4" fill="#15803d"></rect>
+                <rect x="10" y="3" width="6" height="3" fill="#16a34a"></rect>
+            </svg>
+        </div>
+
+        {/* Bird on far right tree */}
+        <div class="absolute bottom-[42%] right-[9%] z-20">
+            <svg width="20" height="16" viewBox="0 0 10 8">
+                <rect x="2" y="3" width="5" height="3" fill="#f97316"></rect>
+                <rect x="6" y="4" width="2" height="2" fill="#f97316"></rect>
+                <rect x="7" y="4" width="2" height="1" fill="#fbbf24"></rect>
+                <rect x="3" y="2" width="2" height="1" fill="#f97316"></rect>
+                <rect x="2" y="6" width="1" height="2" fill="#78350f"></rect>
+                <rect x="5" y="6" width="1" height="2" fill="#78350f"></rect>
+            </svg>
+        </div>
+
+        {/* Butterfly */}
+        <div class="absolute bottom-[45%] left-[15%] z-20">
+            <svg width="16" height="12" viewBox="0 0 8 6">
+                <rect x="3" y="1" width="2" height="4" fill="#1f2937"></rect>
+                <rect x="1" y="1" width="2" height="3" fill="#f472b6"></rect>
+                <rect x="5" y="1" width="2" height="3" fill="#f472b6"></rect>
+                <rect x="0" y="2" width="1" height="2" fill="#ec4899"></rect>
+                <rect x="7" y="2" width="1" height="2" fill="#ec4899"></rect>
+            </svg>
+        </div>
+    </div>
+
+    <main class="fixed inset-0 w-full h-screen overflow-hidden">
+        <PhaserScene client:only="react" />
+        <BusinessCard client:load />
+    </main>
+</Layout>

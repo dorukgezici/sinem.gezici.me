@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+:root {
+    --color-rose: oklch(0.85 0.05 15);
+    --color-cream: oklch(0.98 0.01 60);
+    --color-warm-cream: oklch(0.94 0.03 70);
+    --color-charcoal: oklch(0.25 0.01 260);
+    --color-muted: oklch(0.55 0.01 260);
+    --color-coral: oklch(0.72 0.15 15);
+}
+
+@theme {
+    --color-rose: var(--color-rose);
+    --color-cream: var(--color-cream);
+    --color-warm-cream: var(--color-warm-cream);
+    --color-charcoal: var(--color-charcoal);
+    --color-muted: var(--color-muted);
+    --color-coral: var(--color-coral);
+
+    --font-space: "Space Grotesk", sans-serif;
+    --font-dm: "DM Sans", sans-serif;
+    --font-pixel: "Press Start 2P", monospace;
+}
+
+body {
+    background-color: var(--color-rose);
+    color: var(--color-charcoal);
+    font-family: var(--font-pixel);
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: grayscale;
+    image-rendering: pixelated;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-pixel);
+}
+
+/* Override any font-dm or font-space utilities to use pixel font */
+.font-dm,
+.font-space {
+    font-family: var(--font-pixel) !important;
+}
+
+.brick-pattern {
+    background-image:
+        linear-gradient(335deg, rgba(0, 0, 0, 0.1) 23px, transparent 23px),
+        linear-gradient(155deg, rgba(0, 0, 0, 0.1) 23px, transparent 23px),
+        linear-gradient(335deg, rgba(0, 0, 0, 0.1) 23px, transparent 23px),
+        linear-gradient(155deg, rgba(0, 0, 0, 0.1) 23px, transparent 23px);
+    background-size: 58px 58px;
+    background-color: #c2410c;
+}
+
+/* Pixel-art door animation */
+.door-open {
+    transform: rotateY(-85deg);
+}
+
+/* Footer link pixel styling */
+.pixel-footer-link {
+    font-family: var(--font-pixel);
+    font-size: 8px;
+    line-height: 1.6;
+    image-rendering: pixelated;
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.pixel-footer-link a:hover {
+    color: #fff;
+    text-shadow:
+        0 0 4px #e8b94a,
+        1px 1px 0 #5d3a1a;
+}
+
+/* Pixel text styling helper class */
+.pixel-text {
+    font-family: var(--font-pixel);
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: grayscale;
+    image-rendering: pixelated;
+}
+
+/* Pixel-art styled scrollbar */
+.scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-charcoal) transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: var(--color-charcoal);
+    border: 1px solid var(--color-muted);
+    image-rendering: pixelated;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-coral);
+}

@@ -1,0 +1,7 @@
+[
+  {
+    "label": "dev",
+    "command": "npm run dev",
+    "reveal": "always",
+  },
+]
