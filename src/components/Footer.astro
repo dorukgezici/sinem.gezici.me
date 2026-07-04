@@ -1,0 +1,56 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-line px-6 pt-20 pb-28 sm:px-10 lg:px-16">
+    <div class="mx-auto w-full max-w-6xl">
+        <a
+            data-reveal
+            href="mailto:sinem@gezici.me"
+            class="group block text-center"
+        >
+            <span
+                class="mb-4 block text-[11px] tracking-[0.35em] uppercase text-ink-faint"
+            >
+                Have a project in mind?
+            </span>
+            <span
+                class="font-display block text-[clamp(2.6rem,8vw,6rem)] leading-none tracking-tight transition-colors duration-500 group-hover:text-accent"
+            >
+                Let's <em class="font-light">talk</em>
+            </span>
+        </a>
+
+        <div
+            class="mt-20 flex flex-col items-center justify-between gap-6 text-[11px] tracking-[0.2em] uppercase text-ink-faint sm:flex-row"
+        >
+            <p>© {year} Sinem Demiröz Gezici</p>
+
+            <a
+                href="https://doruk.gezici.me"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="door-scene group/door relative flex items-center gap-3 outline-none"
+                aria-label="Made with love by Doruk Gezici"
+            >
+                <span class="door-secret text-ink-soft normal-case">
+                    with <span class="text-accent">♥</span> by @dorukgezici
+                </span>
+                <span class="relative block h-7 w-5" aria-hidden="true">
+                    <span
+                        class="absolute inset-0 rounded-t-sm border border-line bg-surface"
+                    ></span>
+                    <span
+                        class="door-leaf absolute inset-0 rounded-t-sm border border-ink-faint/40 bg-accent/80"
+                    >
+                        <span
+                            class="absolute top-1/2 right-0.5 size-0.5 -translate-y-1/2 rounded-full bg-paper"
+                        ></span>
+                    </span>
+                </span>
+            </a>
+
+            <p class="normal-case">Psst — the cat likes to be petted</p>
+        </div>
+    </div>
+</footer>

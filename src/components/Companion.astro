@@ -1,0 +1,16 @@
+<canvas
+    id="companion"
+    class="pointer-events-none fixed inset-x-0 bottom-0 z-30 h-40 w-full"
+    aria-hidden="true"></canvas>
+<div
+    id="companion-hit"
+    class="fixed top-0 left-0 z-30 hidden size-14 cursor-pointer"
+    title="pet me 🐾"
+    aria-hidden="true"
+>
+</div>
+
+<script>
+    import { initCompanion } from "../scripts/companion";
+    initCompanion();
+</script>

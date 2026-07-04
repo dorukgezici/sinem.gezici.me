@@ -1,24 +1,34 @@
 ---
-import "../styles/global.css";
+import "@fontsource-variable/fraunces";
 import "@fontsource/space-grotesk";
-import "@fontsource/dm-sans";
+import "../styles/global.css";
 
 interface Props {
     title: string;
+    description: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
+const ogImage = new URL("/avatar.png", Astro.site);
 ---
 
 <!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta
-            name="description"
-            content="Sinem Demiröz Gezici's personal website"
-        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta name="generator" content={Astro.generator} />
+        <link rel="canonical" href={Astro.site} />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content={Astro.site} />
+        <meta property="og:image" content={ogImage} />
+        <meta name="twitter:card" content="summary" />
+
         <link
             rel="apple-touch-icon"
             sizes="180x180"
@@ -37,16 +47,9 @@ const { title } = Astro.props;
             href="/favicon-16x16.png"
         />
         <link rel="manifest" href="/site.webmanifest" />
-        <meta name="generator" content={Astro.generator} />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
-            rel="stylesheet"
-        />
-        <title>{title}</title>
+
         <!-- Google Tag Manager -->
-        <script async>
+        <script is:inline>
             (function (w, d, s, l, i) {
                 w[l] = w[l] || [];
                 w[l].push({
@@ -63,7 +66,7 @@ const { title } = Astro.props;
         </script>
         <!-- End Google Tag Manager -->
     </head>
-    <body class="min-h-screen flex items-start justify-center overflow-hidden">
+    <body class="grain min-h-screen antialiased">
         <!-- Google Tag Manager (noscript) -->
         <noscript>
             <iframe

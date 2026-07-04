@@ -1,137 +1,228 @@
 @import "tailwindcss";
 
+/* ---------------------------------------------------------------------------
+   Design tokens — warm editorial palette, adapts to color scheme
+--------------------------------------------------------------------------- */
+
 :root {
-    --color-rose: oklch(0.85 0.05 15);
-    --color-cream: oklch(0.98 0.01 60);
-    --color-warm-cream: oklch(0.94 0.03 70);
-    --color-charcoal: oklch(0.25 0.01 260);
-    --color-muted: oklch(0.55 0.01 260);
-    --color-coral: oklch(0.72 0.15 15);
+    --paper: oklch(96.5% 0.012 85);
+    --surface: oklch(93.5% 0.02 75);
+    --ink: oklch(24% 0.02 55);
+    --ink-soft: oklch(44% 0.018 55);
+    --ink-faint: oklch(58% 0.014 55);
+    --accent: oklch(60% 0.17 27);
+    --line: oklch(24% 0.02 55 / 0.12);
+    color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --paper: oklch(20.5% 0.014 55);
+        --surface: oklch(24.5% 0.018 55);
+        --ink: oklch(93% 0.014 85);
+        --ink-soft: oklch(74% 0.012 85);
+        --ink-faint: oklch(60% 0.012 85);
+        --accent: oklch(72% 0.15 30);
+        --line: oklch(93% 0.014 85 / 0.14);
+    }
 }
 
 @theme {
-    --color-rose: var(--color-rose);
-    --color-cream: var(--color-cream);
-    --color-warm-cream: var(--color-warm-cream);
-    --color-charcoal: var(--color-charcoal);
-    --color-muted: var(--color-muted);
-    --color-coral: var(--color-coral);
+    --color-paper: var(--paper);
+    --color-surface: var(--surface);
+    --color-ink: var(--ink);
+    --color-ink-soft: var(--ink-soft);
+    --color-ink-faint: var(--ink-faint);
+    --color-accent: var(--accent);
+    --color-line: var(--line);
 
-    --font-space: "Space Grotesk", sans-serif;
-    --font-dm: "DM Sans", sans-serif;
-    --font-pixel: "Press Start 2P", monospace;
+    --font-display: "Fraunces Variable", "Georgia", serif;
+    --font-sans: "Space Grotesk", "Helvetica Neue", sans-serif;
+
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ---------------------------------------------------------------------------
+   Base
+--------------------------------------------------------------------------- */
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    background-color: var(--color-rose);
-    color: var(--color-charcoal);
-    font-family: var(--font-pixel);
-    -webkit-font-smoothing: none;
-    -moz-osx-font-smoothing: grayscale;
-    image-rendering: pixelated;
+    background-color: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: var(--font-pixel);
+::selection {
+    background-color: var(--accent);
+    color: var(--paper);
 }
 
-/* Override any font-dm or font-space utilities to use pixel font */
-.font-dm,
-.font-space {
-    font-family: var(--font-pixel) !important;
+.font-display {
+    font-family: var(--font-display);
+    font-variation-settings: "opsz" 144;
 }
 
-.brick-pattern {
-    background-image:
-        linear-gradient(335deg, rgba(0, 0, 0, 0.1) 23px, transparent 23px),
-        linear-gradient(155deg, rgba(0, 0, 0, 0.1) 23px, transparent 23px),
-        linear-gradient(335deg, rgba(0, 0, 0, 0.1) 23px, transparent 23px),
-        linear-gradient(155deg, rgba(0, 0, 0, 0.1) 23px, transparent 23px);
-    background-size: 58px 58px;
-    background-color: #c2410c;
+/* ---------------------------------------------------------------------------
+   Grain overlay — gives the paper its texture
+--------------------------------------------------------------------------- */
+
+.grain::after {
+    content: "";
+    position: fixed;
+    inset: -50%;
+    z-index: 100;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.05;
+    animation: grain-shift 9s steps(6) infinite;
 }
 
-/* Pixel-art door animation */
-.door-open {
-    transform: rotateY(-85deg);
+@media (prefers-color-scheme: dark) {
+    .grain::after {
+        opacity: 0.07;
+    }
 }
 
-/* Footer link pixel styling */
-.pixel-footer-link {
-    font-family: var(--font-pixel);
-    font-size: 8px;
-    line-height: 1.6;
-    image-rendering: pixelated;
-    -webkit-font-smoothing: none;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-.pixel-footer-link a:hover {
-    color: #fff;
-    text-shadow:
-        0 0 4px #e8b94a,
-        1px 1px 0 #5d3a1a;
-}
-
-/* Pixel text styling helper class */
-.pixel-text {
-    font-family: var(--font-pixel);
-    -webkit-font-smoothing: none;
-    -moz-osx-font-smoothing: grayscale;
-    image-rendering: pixelated;
-}
-
-/* Pixel-art styled scrollbar */
-.scrollbar-thin {
-    scrollbar-width: thin;
-    scrollbar-color: var(--color-charcoal) transparent;
-}
-
-.scrollbar-thin::-webkit-scrollbar {
-    width: 6px;
-}
-
-.scrollbar-thin::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.scrollbar-thin::-webkit-scrollbar-thumb {
-    background-color: var(--color-charcoal);
-    border: 1px solid var(--color-muted);
-    image-rendering: pixelated;
-}
-
-.scrollbar-thin::-webkit-scrollbar-thumb:hover {
-    background-color: var(--color-coral);
-}
-
-/* Animation delay utilities */
-.animation-delay-200 {
-    animation-delay: 200ms;
-}
-
-.animation-delay-500 {
-    animation-delay: 500ms;
-}
-
-/* UFO Easter Egg hint animation */
-@keyframes subtle-glow {
+@keyframes grain-shift {
     0%,
     100% {
-        box-shadow: 0 0 5px rgba(56, 189, 248, 0.3);
+        transform: translate(0, 0);
     }
-    50% {
-        box-shadow:
-            0 0 15px rgba(56, 189, 248, 0.6),
-            0 0 25px rgba(74, 222, 128, 0.3);
+    20% {
+        transform: translate(-4%, 3%);
+    }
+    40% {
+        transform: translate(3%, -5%);
+    }
+    60% {
+        transform: translate(-5%, -2%);
+    }
+    80% {
+        transform: translate(4%, 4%);
     }
 }
 
-.ufo-hint-glow {
-    animation: subtle-glow 3s ease-in-out infinite;
+/* ---------------------------------------------------------------------------
+   Scroll reveals
+--------------------------------------------------------------------------- */
+
+[data-reveal] {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+        opacity 0.9s var(--ease-out-expo),
+        transform 0.9s var(--ease-out-expo);
+    transition-delay: var(--reveal-delay, 0s);
+}
+
+[data-reveal].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ---------------------------------------------------------------------------
+   Marquee
+--------------------------------------------------------------------------- */
+
+.marquee-track {
+    animation: marquee 36s linear infinite;
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* ---------------------------------------------------------------------------
+   Underline sweep for links
+--------------------------------------------------------------------------- */
+
+.link-sweep {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.5s var(--ease-out-expo);
+}
+
+.link-sweep:hover {
+    background-size: 100% 1px;
+}
+
+/* ---------------------------------------------------------------------------
+   Portrait orbit ring
+--------------------------------------------------------------------------- */
+
+.orbit {
+    animation: orbit-spin 24s linear infinite;
+}
+
+@keyframes orbit-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ---------------------------------------------------------------------------
+   Footer door easter egg
+--------------------------------------------------------------------------- */
+
+.door-scene {
+    perspective: 240px;
+}
+
+.door-leaf {
+    transform-origin: left center;
+    transition: transform 0.6s var(--ease-out-expo);
+}
+
+.door-scene:hover .door-leaf,
+.door-scene:focus-visible .door-leaf {
+    transform: rotateY(-105deg);
+}
+
+.door-secret {
+    opacity: 0;
+    transition: opacity 0.45s ease 0.15s;
+}
+
+.door-scene:hover .door-secret,
+.door-scene:focus-visible .door-secret {
+    opacity: 1;
+}
+
+/* ---------------------------------------------------------------------------
+   Reduced motion — calm everything down
+--------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    [data-reveal] {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .marquee-track,
+    .orbit,
+    .grain::after {
+        animation: none;
+    }
+
+    #companion {
+        display: none;
+    }
 }

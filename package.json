@@ -1,7 +1,7 @@
 {
   "name": "sinem.gezici.me",
   "type": "module",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dorukgezici/sinem.gezici.me.git"
@@ -15,19 +15,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/react": "^4.4.2",
-    "@fontsource/dm-sans": "^5.2.8",
+    "@fontsource-variable/fraunces": "^5.2.9",
     "@fontsource/space-grotesk": "^5.2.10",
-    "@phosphor-icons/react": "^2.1.10",
-    "@tailwindcss/vite": "^4.1.18",
-    "@types/react": "^19.2.8",
-    "@types/react-dom": "^19.2.3",
-    "astro": "^5.16.11",
-    "clsx": "^2.1.1",
-    "phaser": "^3.90.0",
-    "react": "^19.2.3",
-    "react-dom": "^19.2.3",
-    "tailwind-merge": "^3.4.0",
-    "tailwindcss": "^4.1.18"
+    "@tailwindcss/vite": "^4.3.2",
+    "astro": "^7.0.6",
+    "tailwindcss": "^4.3.2"
   }
 }

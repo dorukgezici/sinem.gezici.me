@@ -1,0 +1,67 @@
+---
+const links = [
+    {
+        label: "LinkedIn",
+        handle: "in/sinemdemiroz",
+        href: "https://www.linkedin.com/in/sinemdemiroz",
+    },
+    {
+        label: "Medium",
+        handle: "@sinemdemiroz",
+        href: "https://medium.com/@sinemdemiroz",
+    },
+    {
+        label: "Email",
+        handle: "sinem@gezici.me",
+        href: "mailto:sinem@gezici.me",
+    },
+];
+---
+
+<section id="connect" class="px-6 pb-28 sm:px-10 lg:px-16">
+    <div class="mx-auto w-full max-w-6xl">
+        <div
+            data-reveal
+            class="mb-14 flex items-baseline justify-between border-b border-line pb-6"
+        >
+            <h2 class="font-display text-3xl tracking-tight sm:text-4xl">
+                Connect
+            </h2>
+            <p class="text-[11px] tracking-[0.3em] uppercase text-ink-faint">
+                Always open
+            </p>
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-3">
+            {
+                links.map((link, i) => (
+                    <a
+                        data-reveal
+                        style={`--reveal-delay: ${i * 0.08}s`}
+                        href={link.href}
+                        target={
+                            link.href.startsWith("mailto")
+                                ? undefined
+                                : "_blank"
+                        }
+                        rel="noopener noreferrer"
+                        class="group rounded-2xl border border-line p-6 transition-all duration-500 ease-out hover:-translate-y-1 hover:border-accent"
+                    >
+                        <p class="flex items-center justify-between text-[11px] tracking-[0.3em] uppercase text-ink-faint">
+                            {link.label}
+                            <span
+                                class="transition-transform duration-500 ease-out group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-accent"
+                                aria-hidden="true"
+                            >
+                                ↗
+                            </span>
+                        </p>
+                        <p class="mt-6 font-display text-lg tracking-tight break-all group-hover:text-accent">
+                            {link.handle}
+                        </p>
+                    </a>
+                ))
+            }
+        </div>
+    </div>
+</section>

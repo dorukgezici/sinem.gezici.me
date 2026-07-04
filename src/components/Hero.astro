@@ -1,0 +1,124 @@
+---
+const orbitText = "SINEM DEMIRÖZ GEZICI · PERFORMANCE MARKETING · ";
+// circumference of the r=84 circle in the 200×200 viewBox
+const orbitLength = Math.round(2 * Math.PI * 84);
+---
+
+<section
+    id="top"
+    class="relative flex min-h-svh flex-col justify-center px-6 pt-28 pb-20 sm:px-10 lg:px-16"
+>
+    <div
+        class="mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-[1fr_auto]"
+    >
+        <div>
+            <p
+                data-reveal
+                class="mb-6 text-[11px] tracking-[0.35em] uppercase text-ink-faint"
+            >
+                Performance Marketing — Gaming
+            </p>
+
+            <h1
+                class="font-display text-[clamp(3.2rem,10vw,7.5rem)] leading-[0.95] tracking-tight"
+            >
+                <span data-reveal class="block">Sinem</span>
+                <span
+                    data-reveal
+                    style="--reveal-delay: 0.1s"
+                    class="block italic font-light text-accent">Demiröz</span
+                >
+                <span data-reveal style="--reveal-delay: 0.2s" class="block"
+                    >Gezici</span
+                >
+            </h1>
+
+            <p
+                data-reveal
+                style="--reveal-delay: 0.3s"
+                class="mt-8 max-w-md text-base leading-relaxed text-ink-soft sm:text-lg"
+            >
+                Driving growth for games played by millions — currently
+                crafting user acquisition and creative strategy at{" "}
+                <a
+                    href="https://www.rovio.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="link-sweep text-ink">Rovio</a
+                >, the home of Angry Birds.
+            </p>
+
+            <div
+                data-reveal
+                style="--reveal-delay: 0.4s"
+                class="mt-10 flex items-center gap-8 text-[11px] tracking-[0.25em] uppercase"
+            >
+                <a
+                    href="#experience"
+                    class="link-sweep inline-flex items-center gap-2 text-ink-soft hover:text-ink"
+                >
+                    Experience <span aria-hidden="true">↓</span>
+                </a>
+                <a
+                    href="mailto:sinem@gezici.me"
+                    class="link-sweep inline-flex items-center gap-2 text-ink-soft hover:text-ink"
+                >
+                    Contact <span aria-hidden="true">→</span>
+                </a>
+            </div>
+        </div>
+
+        <div
+            data-reveal
+            style="--reveal-delay: 0.25s"
+            class="relative mx-auto lg:mx-0"
+        >
+            <button
+                id="portrait"
+                type="button"
+                class="group relative block size-52 cursor-pointer rounded-full sm:size-64"
+                title="Go on, click me 👽"
+                aria-label="A little surprise"
+            >
+                <svg
+                    class="orbit absolute -inset-8 size-[calc(100%+4rem)] text-ink-faint"
+                    viewBox="0 0 200 200"
+                    aria-hidden="true"
+                >
+                    <defs>
+                        <path
+                            id="orbit-circle"
+                            d="M 100,100 m -84,0 a 84,84 0 1,1 168,0 a 84,84 0 1,1 -168,0"
+                        ></path>
+                    </defs>
+                    <text class="fill-current text-[11px] uppercase">
+                        <textPath
+                            href="#orbit-circle"
+                            textLength={orbitLength}
+                            lengthAdjust="spacing">{orbitText}</textPath
+                        >
+                    </text>
+                </svg>
+
+                <span
+                    class="absolute -inset-2 rounded-full border border-line transition-colors duration-500 group-hover:border-accent"
+                ></span>
+                <img
+                    src="/avatar.png"
+                    alt="Portrait of Sinem Demiröz Gezici"
+                    width="256"
+                    height="256"
+                    class="size-full rounded-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04] group-hover:rotate-2"
+                />
+            </button>
+        </div>
+    </div>
+
+    <p
+        data-reveal
+        style="--reveal-delay: 0.6s"
+        class="absolute bottom-8 left-1/2 -translate-x-1/2 text-[10px] tracking-[0.3em] uppercase text-ink-faint"
+    >
+        Scroll
+    </p>
+</section>

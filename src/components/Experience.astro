@@ -1,0 +1,96 @@
+---
+const experiences = [
+    {
+        role: "Performance Marketing Manager",
+        company: "Rovio Entertainment",
+        companyUrl: "https://www.rovio.com",
+        period: "2024 — Present",
+    },
+    {
+        role: "Performance Marketing Specialist",
+        company: "Rovio Entertainment",
+        companyUrl: "https://www.rovio.com",
+        period: "2022 — 2024",
+    },
+    {
+        role: "Performance Marketing Specialist",
+        company: "Masomo",
+        companyUrl: "https://masomo.com",
+        period: "2021 — 2022",
+    },
+    {
+        role: "Alumni / Fellow",
+        company: "Turkish Entrepreneurship Foundation",
+        companyUrl: "https://girisimcilikvakfi.org",
+        period: "2019 — Present",
+    },
+    {
+        role: "Digital Marketing Specialist",
+        company: "Gamer Arena",
+        companyUrl: "https://gamerarena.com",
+        period: "2019 — 2020",
+    },
+    {
+        role: "Volunteer",
+        company: "Young Guru Academy",
+        companyUrl: "https://yga.org.tr",
+        period: "2019 — 2020",
+    },
+    {
+        role: "Marketing & Growth Trainee",
+        company: "Piri",
+        companyUrl: "https://piriguide.com",
+        period: "2019",
+    },
+];
+---
+
+<section id="experience" class="px-6 py-28 sm:px-10 lg:px-16">
+    <div class="mx-auto w-full max-w-6xl">
+        <div
+            data-reveal
+            class="mb-14 flex items-baseline justify-between border-b border-line pb-6"
+        >
+            <h2 class="font-display text-3xl tracking-tight sm:text-4xl">
+                Experience
+            </h2>
+            <p class="text-[11px] tracking-[0.3em] uppercase text-ink-faint">
+                {String(experiences.length).padStart(2, "0")} roles
+            </p>
+        </div>
+
+        <ol class="group/list">
+            {
+                experiences.map((exp, i) => (
+                    <li
+                        data-reveal
+                        style={`--reveal-delay: ${Math.min(i * 0.06, 0.4)}s`}
+                        class="group relative border-b border-line transition-opacity duration-500 group-hover/list:opacity-40 hover:!opacity-100"
+                    >
+                        <div class="grid grid-cols-[auto_1fr] items-baseline gap-x-6 gap-y-1 py-7 transition-transform duration-500 ease-out group-hover:translate-x-3 sm:grid-cols-[3rem_1fr_auto] sm:gap-x-10">
+                            <span class="font-display text-sm italic text-ink-faint">
+                                {String(i + 1).padStart(2, "0")}
+                            </span>
+                            <div>
+                                <h3 class="font-display text-xl tracking-tight sm:text-2xl">
+                                    {exp.role}
+                                </h3>
+                                <a
+                                    href={exp.companyUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="link-sweep mt-1 inline-block text-sm text-ink-soft hover:text-accent"
+                                >
+                                    {exp.company} ↗
+                                </a>
+                            </div>
+                            <p class="col-start-2 text-[11px] tracking-[0.25em] uppercase text-ink-faint sm:col-start-3 sm:justify-self-end">
+                                {exp.period}
+                            </p>
+                        </div>
+                    </li>
+                ))
+            }
+        </ol>
+    </div>
+</section>

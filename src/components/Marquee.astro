@@ -1,0 +1,38 @@
+---
+const items = [
+    "User Acquisition",
+    "Creative Strategy",
+    "Growth Analytics",
+    "App Marketing",
+    "A/B Testing",
+    "ASO",
+    "Campaign Optimization",
+    "Mobile Gaming",
+];
+---
+
+<div
+    class="overflow-hidden border-y border-line py-4"
+    role="marquee"
+    aria-label="Areas of expertise"
+>
+    <div class="marquee-track flex w-max items-center whitespace-nowrap">
+        {
+            [0, 1].map((copy) => (
+                <div
+                    class="flex items-center"
+                    aria-hidden={copy === 1 ? "true" : undefined}
+                >
+                    {items.map((item) => (
+                        <span class="flex items-center gap-6 pr-6 text-[12px] tracking-[0.3em] uppercase text-ink-faint">
+                            {item}
+                            <span class="text-accent" aria-hidden="true">
+                                ✦
+                            </span>
+                        </span>
+                    ))}
+                </div>
+            ))
+        }
+    </div>
+</div>

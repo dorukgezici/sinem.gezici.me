@@ -1,21 +1,41 @@
 ---
+import Companion from "../components/Companion.astro";
+import Connect from "../components/Connect.astro";
+import Experience from "../components/Experience.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import Marquee from "../components/Marquee.astro";
 import Layout from "../layouts/Layout.astro";
-import BusinessCard from "../components/BusinessCard";
-import PhaserScene from "../components/PhaserScene";
-import SceneDecorations from "../components/scene/SceneDecorations.astro";
-import SceneForeground from "../components/scene/SceneForeground.astro";
 ---
 
-<Layout title="Sinem Demiröz Gezici">
-    {/* Environment */}
-    <SceneDecorations>
-        <SceneForeground />
-    </SceneDecorations>
-
-    <main
-        class="fixed inset-0 w-full h-screen overflow-hidden px-3 sm:px-4 md:px-0"
-    >
-        <PhaserScene client:only="react" />
-        <BusinessCard client:load />
+<Layout
+    title="Sinem Demiröz Gezici — Performance Marketing"
+    description="Performance marketing manager driving growth for games played by millions. Currently crafting user acquisition and creative strategy at Rovio, the home of Angry Birds."
+>
+    <Header />
+    <main>
+        <Hero />
+        <Marquee />
+        <Experience />
+        <Connect />
     </main>
+    <Footer />
+    <Companion />
 </Layout>
+
+<script>
+    const revealed = document.querySelectorAll("[data-reveal]");
+    const observer = new IntersectionObserver(
+        (entries) => {
+            for (const entry of entries) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                    observer.unobserve(entry.target);
+                }
+            }
+        },
+        { threshold: 0.15, rootMargin: "0px 0px -5% 0px" },
+    );
+    revealed.forEach((el) => observer.observe(el));
+</script>
